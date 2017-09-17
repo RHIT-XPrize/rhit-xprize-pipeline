@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <name>HelloWorldTypeSystem</name>
+    <description></description>
+    <vendor>Apache Software Foundation</vendor>
+    <version>1.0</version>
+    <types>
+        <typeDescription>
+            <name>edu.rosehulman.csse.types.SomeType</name>
+            <description>
+            </description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>something</name>
+                    <description>Just some data</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+    </types>
+</typeSystemDescription>
