@@ -23,22 +23,26 @@ to execute.
 ** Installation
 This repository is a ROS package, and as such should be cloned into
 your =catkin_ws/src= folder (see [[http://wiki.ros.org/catkin/Tutorials/create_a_workspace][this tutorial]] for information about
-setting up a workspace). Projects will be Gradle projects, and should
-be imported as such.
+setting up a workspace).
 
-Once cloned and after any relevant changes, =cd= into =catkin_ws/= and
-run =catkin_make=. This will compile the package.
+#+BEGIN_SRC bash
+  cd catkin_ws/src
+  git clone https://github.com/RHIT-XPrize/rhit-xprize-pipeline edu_rosehulman_aixprize
+
+  cd ..
+  catkin_make
+
+  echo "source catkin_ws/devel/setup.bash" >> ~/.bashrc
+#+END_SRC
+
+Note that projects will be Gradle projects, and should be imported as
+such.
 ** Usage
 #+BEGIN_SRC bash
   roscore &
-  rosrun rhit-xprize-pipeline pipeline edu.rosehulman.aixprize.pipeline.core.Controller
+  rosrun edu_rosehulman_aixprize pipeline edu.rosehulman.aixprize.pipeline.core.Controller
 #+END_SRC
 *** Troubleshooting
 - ROS is unable to find the package
-  + Make sure you =source catkin_ws/devel/setup.bash= in order to
-    update the cache of installed projects. You only need to do this
-    when you are adding or removing projects, so it's best if you add
-    that into your =.bashrc=.
-  + Ensure that the name of the package in the =rosrun= command
-    (=rhit-xprize-pipeline= by default) is the name of whatever folder
-    you cloned this repository into.
+  + Ensure that you cloned the repository into a folder named
+    =edu_rosehulman_aixprize=.
