@@ -20,6 +20,7 @@ to execute.
 - ROS Indigo
 - UIMA
 - Gradle
+- ROSJava
 ** Installation
 This repository is a ROS package, and as such should be cloned into
 your =catkin_ws/src= folder (see [[http://wiki.ros.org/catkin/Tutorials/create_a_workspace][this tutorial]] for information about
