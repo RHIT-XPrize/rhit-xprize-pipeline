@@ -43,7 +43,12 @@ such.
   roscore &
   rosrun edu_rosehulman_aixprize pipeline edu.rosehulman.aixprize.pipeline.core.Controller
 #+END_SRC
+
+The =rosrun= will ask you to select which binary to use. Select one
+under the =bin/= folder.
 ** Troubleshooting
 - ROS is unable to find the package
   + Ensure that you cloned the repository into a folder named
     =edu_rosehulman_aixprize=.
+  + Make sure you've run =source catkin_ws/setup.bash= during this
+    terminal session. (Better yet, add it to your =~/.bashrc=
