@@ -33,7 +33,7 @@ setting up a workspace).
   cd ..
   catkin_make
 
-  echo "source catkin_ws/devel/setup.bash" >> ~/.bashrc
+  source catkin_ws/devel/setup.bash
 #+END_SRC
 
 Note that projects will be Gradle projects, and should be imported as
