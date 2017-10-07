@@ -3,6 +3,7 @@ package edu.rosehulman.aixprize.pipeline.core;
 import org.apache.commons.logging.Log;
 import org.ros.namespace.GraphName;
 import org.ros.node.*;
+import org.apache.uima.*;
 
 public class Controller extends AbstractNodeMain {
 
@@ -14,6 +15,6 @@ public class Controller extends AbstractNodeMain {
 	@Override
 	public void onStart(ConnectedNode connectedNode) {
 		Log log = connectedNode.getLog();
-		log.info("Hello world!");
+		log.info(UIMAFramework.getVersionString());
 	}
 }

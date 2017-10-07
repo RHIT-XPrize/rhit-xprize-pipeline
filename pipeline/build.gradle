@@ -31,5 +31,8 @@ dependencies {
   compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
   /* Example of a local subproject dependency */ 
   /* compile project(':sibling_gradle_project') */
+
+  // https://mvnrepository.com/artifact/org.apache.uima/uimaj-core
+  compile group: 'org.apache.uima', name: 'uimaj-core', version: '2.10.1'
 }
 
