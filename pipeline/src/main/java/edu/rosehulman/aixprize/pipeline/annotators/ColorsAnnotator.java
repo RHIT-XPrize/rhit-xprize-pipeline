@@ -14,6 +14,16 @@ import org.json.JSONObject;
 
 import edu.rosehulman.aixprize.pipeline.types.Color;
 
+/**
+ * Communicates with a Python script to find color words in a file.
+ * Interface:
+ * - writes a standard JSON-ified CAS to the Socket at port 8080
+ * - receives a series of annotations in JSON, one per line, with fields of:
+ *   + begin: int
+ *   + end: int
+ *   + name: String
+ * - the last annotation line should be an empty JSON object
+ */
 public class ColorsAnnotator extends JCasAnnotator_ImplBase {
 	
 	private Socket socket;
