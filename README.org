@@ -52,3 +52,60 @@ under the =bin/= folder.
     =edu_rosehulman_aixprize=.
   + Make sure you've run =source catkin_ws/setup.bash= during this
     terminal session. (Better yet, add it to your =~/.bashrc=
+** Protocol
+Java annotators will act as clients to the external annotators, which
+will act as servers, the two of which will communicate over HTTP.
+*** Setup
+Each annotator pair will use a set address and port number read in
+from a JSON configuration file formatted as a list of objects in this form:
+#+BEGIN_SRC javascript
+  {
+      "annotator_name": {
+          "address": "123.45.67.89",
+          "port": 1234
+      },
+      "other_annotator_name": {
+          "address": "123.45.67.80",
+          "port": 4321
+      }
+  }
+#+END_SRC
+*** Configuration
+After the servers are set up, the Java annotators will send a request
+with the configuration details pulled from the =UimaContext= object,
+again in JSON. The names of the annotations and annotation field keys
+that will be used are also sent to the server at this point.
+*** Basic Communication
+Standard communications will use a =GET= request, which will include a
+JSON-ified CAS object as the body of the HTTP request. The server will
+then respond with a JSON object with a list of annotations by type,
+where each of the fields of the goal annotation are specified:
+#+BEGIN_SRC javascript
+  {
+      "my_string_annotation": [
+          {
+              "begin": 0,
+              "end": 3,
+              "my_string_field": "bar"
+          },
+          {
+              "begin": 5,
+              "end": 10,
+              "my_string_field": "foo"
+          }
+      ],
+      "my_int_annotation": [
+          {
+              "begin": 12,
+              "end": 13,
+              "my_int_field": 5,
+              "my_other_string_field": "foobar"
+          }
+      ]
+  }
+#+END_SRC
+*** Advanced Communication
+Prior to sending the basic =GET= request, the client annotator will
+=PUT= binary files onto the server annotator in locations specified in
+the configuration state (preferably in a =UimaContext= configuration
+field). These files will then be read as input in the server.
