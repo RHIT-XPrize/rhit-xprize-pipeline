@@ -30,20 +30,25 @@ public class Controller extends AbstractNodeMain {
 		
 		File testAnnotatorDescriptor 
 			= new File("src/edu_rosehulman_aixprize/pipeline/desc/TestAnnotatorDescriptor.xml");
+		File colorsAnnotatorDescriptor
+			= new File("src/edu_rosehulman_aixprize/pipeline/desc/ColorsAnnotatorDescriptor.xml");
 		if (!testAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + testAnnotatorDescriptor.getAbsolutePath());
 		}
+		if (!colorsAnnotatorDescriptor.exists()) {
+			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
+		}
 		try {
-			XMLInputSource xmlInput = new XMLInputSource(testAnnotatorDescriptor);
+			XMLInputSource xmlInput = new XMLInputSource(colorsAnnotatorDescriptor);
 			ResourceSpecifier specifier 
 				= UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 			
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
 			
-			cas.setDocumentText("This is some document text. It is amazingly uninformative.");
+			cas.setDocumentText("This is some document text. My face is blue and I am sad.");
 			analysisEngine.process(cas);
-			AnnotationIndex<TestType> index = cas.getAnnotationIndex(TestType.class);
+			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
 			cas.reset();
 		} catch (IOException e) {

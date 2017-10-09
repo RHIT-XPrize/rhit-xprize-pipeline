@@ -55,7 +55,16 @@ public class ColorsAnnotator extends JCasAnnotator_ImplBase {
 		StringWriter serialized = new StringWriter();
 		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
 
-		socket.getOutputStream().write(serialized.toString().getBytes());
+		byte[] casBytes = serialized.toString().getBytes();
+		byte[] streamBytes = new byte[casBytes.length + 3];
+		int i = 0;
+		for (; i < casBytes.length; i++) {
+			streamBytes[i] = casBytes[i];
+		}
+		streamBytes[i++] = '$';
+		streamBytes[i++] = '%';
+		streamBytes[i] = '$';
+		socket.getOutputStream().write(streamBytes);
 	}
 
 	private void receiveAnnotations(JCas cas) throws IOException {
@@ -66,7 +75,7 @@ public class ColorsAnnotator extends JCasAnnotator_ImplBase {
 
 		while (true) {
 			annotationJson = new JSONObject(reader.readLine());
-			if (annotationJson.names().length() == 0) {
+			if (annotationJson.names() == null) {
 				break;
 			}
 
@@ -82,7 +91,7 @@ public class ColorsAnnotator extends JCasAnnotator_ImplBase {
 	private Annotation createAnnotation(JCas cas, JSONObject annotationJson) {
 		Color annotation = new Color(cas);
 
-		annotation.setName(annotationJson.getString("name"));
+		annotation.setName(annotationJson.getString("color"));
 
 		return annotation;
 	}

@@ -7,8 +7,8 @@ import json
 
 class Annotator(tornado.web.RequestHandler):
     def __init__(self):
-        self._addr = ''
-        self._port = 12345
+        self._addr = '127.0.0.1'
+        self._port = 8080
         self._stream = None
 
     def _initialize(self, sock):
@@ -18,15 +18,16 @@ class Annotator(tornado.web.RequestHandler):
 
     def _handle_request(self, sock, fd, events):
         self._initialize(sock)
-        self._stream.read_until(b'}', callback=self._annotate)
+        self._stream.read_until(b'$%$', callback=self._annotate)
 
     def _annotate(self, data):
-        resp = self.annotate(json.loads(data))
+        resp = self.annotate(json.loads(data.decode()[:-3]))
         self.respond(resp)
 
     def respond(self, data):
-        print(data)
-        self._stream.write(bytes(json.dumps(data), 'UTF-8'))
+        if data:
+            self._stream.write(bytes(json.dumps(data) + "\n", 'UTF-8'))
+        self._stream.write(bytes("{}\n", 'UTF-8'))
 
     def start(self):
         print('Starting annotator')
@@ -47,11 +48,15 @@ class ColorAnnotator(Annotator):
         self.color_words = ['red', 'blue', 'yellow']
 
     def annotate(self, data):
-        return {
-            'color': 'red',
-            'begin': 5,
-            'end': 10
-        }
+        sofa_string = data['_referenced_fss']['1']['sofaString']
+        for word in sofa_string.split(' '):
+            if word in self.color_words:
+                return {
+                    'color': word,
+                    'begin': -1,
+                    'end': -1
+                }
+        return False
 
 
 if __name__ == '__main__':
