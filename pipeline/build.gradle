@@ -18,7 +18,7 @@
 apply plugin: 'application'
 mainClassName = 'org.ros.RosRun'
 
-/* 
+/*
  Dependencies can be on external maven artifacts (such as rosjava_core
  here) or on sibling subprojects. Fpr external maven artifact dependencies
  it's convenient to use an open ranged dependency, but restrict it to
@@ -32,10 +32,15 @@ targetCompatibility = 1.8
 dependencies {
   /* An external maven artifact dependency */
   compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
-  /* Example of a local subproject dependency */ 
+  /* Example of a local subproject dependency */
   /* compile project(':sibling_gradle_project') */
 
   // https://mvnrepository.com/artifact/org.apache.uima/uimaj-core
   compile group: 'org.apache.uima', name: 'uimaj-core', version: '2.10.1'
-}
 
+  // https://mvnrepository.com/artifact/org.apache.uima/uimaj-json
+  compile group: 'org.apache.uima', name: 'uimaj-json', version: '2.10.1'
+  
+  // https://mvnrepository.com/artifact/org.json/json
+  compile group: 'org.json', name: 'json', version: '20170516'
+}
