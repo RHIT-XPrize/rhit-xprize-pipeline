@@ -2,7 +2,14 @@ package edu.rosehulman.aixprize.pipeline.annotators;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.*;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.*;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -10,89 +17,83 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.ResourceInitializationException;
-import org.json.JSONObject;
+import org.json.*;
 
 import edu.rosehulman.aixprize.pipeline.types.Color;
 
 /**
- * Communicates with a Python script to find color words in a file.
- * Interface:
- * - writes a standard JSON-ified CAS to the Socket at port 8080
- * - receives a series of annotations in JSON, one per line, with fields of:
- *   + begin: int
- *   + end: int
- *   + name: String
+ * Communicates with a Python script to find color words in a file. 
+ * Interface: 
+ * - writes a standard JSON-ified CAS to the Socket at port 8080 
+ * - receives a series of annotations in JSON, one per line, with fields of: 
+ *   + begin: int 
+ *   + end: int 
+ *   + name: String 
  * - the last annotation line should be an empty JSON object
  */
 public class ColorsAnnotator extends JCasAnnotator_ImplBase {
-	
-	private Socket socket;
+
+	private URI uri;
+	private CloseableHttpClient client;
 
 	@Override
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
 		try {
-			socket = new Socket("127.0.0.1", 8080);
-		} catch (IOException e) {
+			this.uri = new URIBuilder().setHost("127.0.0.1")
+									   .setScheme("http")
+									   .setPort(8080)
+									   .build();
+			this.client = HttpClientBuilder.create().build();
+		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void process(JCas cas) throws AnalysisEngineProcessException {
-		if (socket == null) {
+		if (this.uri == null) {
 			return;
 		}
 
 		try {
-			transmitCas(cas);
-			receiveAnnotations(cas);
+			InputStream resp = transmitCas(cas);
+			receiveAnnotations(cas, resp);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void transmitCas(JCas cas) throws IOException {
+	private InputStream transmitCas(JCas cas) throws IOException {
 		StringWriter serialized = new StringWriter();
 		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
-
-		byte[] casBytes = serialized.toString().getBytes();
-		byte[] streamBytes = new byte[casBytes.length + 3];
-		int i = 0;
-		for (; i < casBytes.length; i++) {
-			streamBytes[i] = casBytes[i];
-		}
-		streamBytes[i++] = '$';
-		streamBytes[i++] = '%';
-		streamBytes[i] = '$';
-		socket.getOutputStream().write(streamBytes);
+		String sCas = serialized.toString();
+		HttpUriRequest req =
+				RequestBuilder.post(this.uri)
+							  .setEntity(new StringEntity(sCas))
+							  .build();
+		HttpResponse resp = this.client.execute(req);
+		return resp.getEntity().getContent();
 	}
 
-	private void receiveAnnotations(JCas cas) throws IOException {
-		BufferedReader reader
-			= new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		Annotation annotation;
+	private void receiveAnnotations(JCas cas, InputStream resp) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(resp));
 		JSONObject annotationJson;
 
-		while (true) {
-			annotationJson = new JSONObject(reader.readLine());
-			if (annotationJson.names() == null) {
-				break;
-			}
-
-			annotation = createAnnotation(cas, annotationJson);
-
-			annotation.setBegin(annotationJson.getInt("begin"));
-			annotation.setEnd(annotationJson.getInt("end"));
-
-			annotation.addToIndexes();
+		annotationJson = new JSONObject(reader.readLine());
+		JSONArray colors = annotationJson.getJSONArray("Color");
+		List<Annotation> colorAnnotations = new ArrayList<>();
+		for (int i = 0; i < colors.length(); i++) {
+			colorAnnotations.add(this.createAnnotation(cas, colors.getJSONObject(i)));
 		}
+
+		colorAnnotations.forEach(Annotation::addToIndexes);
 	}
 
 	private Annotation createAnnotation(JCas cas, JSONObject annotationJson) {
 		Color annotation = new Color(cas);
-
 		annotation.setName(annotationJson.getString("color"));
-
+		annotation.setBegin(annotationJson.getInt("begin"));
+		annotation.setEnd(annotationJson.getInt("end"));
 		return annotation;
 	}
 }

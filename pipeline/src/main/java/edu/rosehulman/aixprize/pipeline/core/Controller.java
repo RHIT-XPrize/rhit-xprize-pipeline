@@ -5,7 +5,6 @@ import java.io.*;
 import org.apache.commons.logging.Log;
 import org.apache.uima.UIMAFramework;
 import org.apache.uima.analysis_engine.*;
-import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
@@ -13,8 +12,6 @@ import org.apache.uima.resource.*;
 import org.apache.uima.util.*;
 import org.ros.namespace.GraphName;
 import org.ros.node.*;
-
-import edu.rosehulman.aixprize.pipeline.types.TestType;
 
 public class Controller extends AbstractNodeMain {
 
@@ -46,7 +43,7 @@ public class Controller extends AbstractNodeMain {
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
 			
-			cas.setDocumentText("This is some document text. My face is blue and I am sad.");
+			cas.setDocumentText("This is some document text. My face is blue and I am sad. red.");
 			analysisEngine.process(cas);
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
