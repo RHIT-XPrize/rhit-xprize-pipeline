@@ -19,30 +19,25 @@ public class Controller extends AbstractNodeMain {
 	public GraphName getDefaultNodeName() {
 		return GraphName.of("pipeline/core");
 	}
-	
+
 	@Override
 	public void onStart(ConnectedNode connectedNode) {
 		Log log = connectedNode.getLog();
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
-		
-		File testAnnotatorDescriptor 
-			= new File("src/edu_rosehulman_aixprize/pipeline/desc/TestAnnotatorDescriptor.xml");
+
 		File colorsAnnotatorDescriptor
 			= new File("src/edu_rosehulman_aixprize/pipeline/desc/ColorsAnnotatorDescriptor.xml");
-		if (!testAnnotatorDescriptor.exists()) {
-			log.fatal("Couldn't find descriptor at " + testAnnotatorDescriptor.getAbsolutePath());
-		}
 		if (!colorsAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
 			XMLInputSource xmlInput = new XMLInputSource(colorsAnnotatorDescriptor);
-			ResourceSpecifier specifier 
+			ResourceSpecifier specifier
 				= UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
-			
+
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
-			
+
 			cas.setDocumentText("This is some document text. My face is blue and I am sad. red.");
 			analysisEngine.process(cas);
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
