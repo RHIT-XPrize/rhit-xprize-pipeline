@@ -5,7 +5,6 @@ import java.io.*;
 import org.apache.commons.logging.Log;
 import org.apache.uima.UIMAFramework;
 import org.apache.uima.analysis_engine.*;
-import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
@@ -14,36 +13,34 @@ import org.apache.uima.util.*;
 import org.ros.namespace.GraphName;
 import org.ros.node.*;
 
-import edu.rosehulman.aixprize.pipeline.types.TestType;
-
 public class Controller extends AbstractNodeMain {
 
 	@Override
 	public GraphName getDefaultNodeName() {
 		return GraphName.of("pipeline/core");
 	}
-	
+
 	@Override
 	public void onStart(ConnectedNode connectedNode) {
 		Log log = connectedNode.getLog();
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
-		
-		File testAnnotatorDescriptor 
-			= new File("src/edu_rosehulman_aixprize/pipeline/desc/TestAnnotatorDescriptor.xml");
-		if (!testAnnotatorDescriptor.exists()) {
-			log.fatal("Couldn't find descriptor at " + testAnnotatorDescriptor.getAbsolutePath());
+
+		File colorsAnnotatorDescriptor
+			= new File("src/edu_rosehulman_aixprize/pipeline/desc/ColorsAnnotatorDescriptor.xml");
+		if (!colorsAnnotatorDescriptor.exists()) {
+			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
-			XMLInputSource xmlInput = new XMLInputSource(testAnnotatorDescriptor);
-			ResourceSpecifier specifier 
+			XMLInputSource xmlInput = new XMLInputSource(colorsAnnotatorDescriptor);
+			ResourceSpecifier specifier
 				= UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
-			
+
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
-			
-			cas.setDocumentText("This is some document text. It is amazingly uninformative.");
+
+			cas.setDocumentText("This is some document text. My face is blue and I am sad. red.");
 			analysisEngine.process(cas);
-			AnnotationIndex<TestType> index = cas.getAnnotationIndex(TestType.class);
+			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
 			cas.reset();
 		} catch (IOException e) {

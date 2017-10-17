@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Sat Oct 07 14:50:45 EDT 2017 */
+/* First created by JCasGen Sun Oct 08 07:47:26 EDT 2017 */
 package edu.rosehulman.aixprize.pipeline.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,15 +11,15 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sat Oct 07 14:50:45 EDT 2017
- * XML source: /mnt/ubuntu/home/lewis/aixprize_ws/src/edu_rosehulman_aixprize/pipeline/desc/TestAnnotatorDescriptor
+ * Updated by JCasGen Sun Oct 08 07:47:26 EDT 2017
+ * XML source: /mnt/ubuntu/home/lewis/aixprize_ws/src/edu_rosehulman_aixprize/pipeline/desc/FindColorsAnnotatorDescriptor.xml
  * @generated */
-public class TestType extends Annotation {
+public class Color extends Annotation {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(TestType.class);
+  public final static int typeIndexID = JCasRegistry.register(Color.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class TestType extends Annotation {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected TestType() {/* intentionally empty block */}
+  protected Color() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public TestType(int addr, TOP_Type type) {
+  public Color(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class TestType extends Annotation {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public TestType(JCas jcas) {
+  public Color(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -58,7 +58,7 @@ public class TestType extends Annotation {
    * @param begin offset to the begin spot in the SofA
    * @param end offset to the end spot in the SofA 
   */  
-  public TestType(JCas jcas, int begin, int end) {
+  public Color(JCas jcas, int begin, int end) {
     super(jcas);
     setBegin(begin);
     setEnd(end);
@@ -77,25 +77,25 @@ public class TestType extends Annotation {
  
     
   //*--------------*
-  //* Feature: TestFeature
+  //* Feature: name
 
-  /** getter for TestFeature - gets 
+  /** getter for name - gets 
    * @generated
    * @return value of the feature 
    */
-  public String getTestFeature() {
-    if (TestType_Type.featOkTst && ((TestType_Type)jcasType).casFeat_TestFeature == null)
-      jcasType.jcas.throwFeatMissing("TestFeature", "edu.rosehulman.aixprize.pipeline.types.TestType");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((TestType_Type)jcasType).casFeatCode_TestFeature);}
+  public String getName() {
+    if (Color_Type.featOkTst && ((Color_Type)jcasType).casFeat_name == null)
+      jcasType.jcas.throwFeatMissing("name", "edu.rosehulman.aixprize.pipeline.types.Color");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((Color_Type)jcasType).casFeatCode_name);}
     
-  /** setter for TestFeature - sets  
+  /** setter for name - sets  
    * @generated
    * @param v value to set into the feature 
    */
-  public void setTestFeature(String v) {
-    if (TestType_Type.featOkTst && ((TestType_Type)jcasType).casFeat_TestFeature == null)
-      jcasType.jcas.throwFeatMissing("TestFeature", "edu.rosehulman.aixprize.pipeline.types.TestType");
-    jcasType.ll_cas.ll_setStringValue(addr, ((TestType_Type)jcasType).casFeatCode_TestFeature, v);}    
+  public void setName(String v) {
+    if (Color_Type.featOkTst && ((Color_Type)jcasType).casFeat_name == null)
+      jcasType.jcas.throwFeatMissing("name", "edu.rosehulman.aixprize.pipeline.types.Color");
+    jcasType.ll_cas.ll_setStringValue(addr, ((Color_Type)jcasType).casFeatCode_name, v);}    
   }
 
     
