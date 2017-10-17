@@ -56,27 +56,25 @@ public class ColorsAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		try {
-			InputStream resp = transmitCas(cas);
-			receiveAnnotations(cas, resp);
+			HttpUriRequest req = createRequest(cas);
+			receiveAnnotations(cas, this.client.execute(req));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private InputStream transmitCas(JCas cas) throws IOException {
+	private HttpUriRequest createRequest(JCas cas) throws IOException {
 		StringWriter serialized = new StringWriter();
 		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
 		String sCas = serialized.toString();
-		HttpUriRequest req =
-				RequestBuilder.post(this.uri)
+		return RequestBuilder.post(this.uri)
 							  .setEntity(new StringEntity(sCas))
 							  .build();
-		HttpResponse resp = this.client.execute(req);
-		return resp.getEntity().getContent();
 	}
 
-	private void receiveAnnotations(JCas cas, InputStream resp) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(resp));
+	private void receiveAnnotations(JCas cas, HttpResponse resp) throws IOException {
+		InputStream stream = resp.getEntity().getContent();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 		JSONObject annotationJson;
 
 		annotationJson = new JSONObject(reader.readLine());
