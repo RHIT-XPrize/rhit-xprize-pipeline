@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Sun Oct 08 07:47:26 EDT 2017
+ * Updated by JCasGen Tue Oct 17 17:10:22 EDT 2017
  * @generated */
 public class Color_Type extends Annotation_Type {
   /** @generated */
@@ -23,26 +23,26 @@ public class Color_Type extends Annotation_Type {
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.Color");
  
   /** @generated */
-  final Feature casFeat_name;
+  final Feature casFeat_color;
   /** @generated */
-  final int     casFeatCode_name;
+  final int     casFeatCode_color;
   /** @generated
    * @param addr low level Feature Structure reference
    * @return the feature value 
    */ 
-  public String getName(int addr) {
-        if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "edu.rosehulman.aixprize.pipeline.types.Color");
-    return ll_cas.ll_getStringValue(addr, casFeatCode_name);
+  public String getColor(int addr) {
+        if (featOkTst && casFeat_color == null)
+      jcas.throwFeatMissing("color", "edu.rosehulman.aixprize.pipeline.types.Color");
+    return ll_cas.ll_getStringValue(addr, casFeatCode_color);
   }
   /** @generated
    * @param addr low level Feature Structure reference
    * @param v value to set 
    */    
-  public void setName(int addr, String v) {
-        if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "edu.rosehulman.aixprize.pipeline.types.Color");
-    ll_cas.ll_setStringValue(addr, casFeatCode_name, v);}
+  public void setColor(int addr, String v) {
+        if (featOkTst && casFeat_color == null)
+      jcas.throwFeatMissing("color", "edu.rosehulman.aixprize.pipeline.types.Color");
+    ll_cas.ll_setStringValue(addr, casFeatCode_color, v);}
     
   
 
@@ -58,8 +58,8 @@ public class Color_Type extends Annotation_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_name = jcas.getRequiredFeatureDE(casType, "name", "uima.cas.String", featOkTst);
-    casFeatCode_name  = (null == casFeat_name) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_name).getCode();
+    casFeat_color = jcas.getRequiredFeatureDE(casType, "color", "uima.cas.String", featOkTst);
+    casFeatCode_color  = (null == casFeat_color) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_color).getCode();
 
   }
 }
