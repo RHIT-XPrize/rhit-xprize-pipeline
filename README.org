@@ -55,6 +55,11 @@ under the =bin/= folder.
 ** Protocol
 Java annotators will act as clients to the external annotators, which
 will act as servers, the two of which will communicate over HTTP.
+
+Most data will be sent in JSON format. These JSON blobs will be
+un-prettified and written on a /single line/. The examples below are
+prettified, and as such /are not valid/, however for readability we've
+formatted them as such.
 *** Setup
 Each annotator pair will use a set address and port number read in
 from a JSON configuration file formatted as a list of objects in this form:
