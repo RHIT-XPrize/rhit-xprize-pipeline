@@ -20,7 +20,9 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
 public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
-	protected static class NoMatchingAnnotationException extends Exception { }
+	protected static class NoMatchingAnnotationException extends Exception {
+		private static final long serialVersionUID = 7484866497315133495L;
+		}
 
 	private URI uri;
 	private CloseableHttpClient client;
@@ -72,7 +74,7 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 			List<Annotation> annotations = new ArrayList<>();
 			for (int i = 0; i < jsonAnnotations.length(); i++) {
 				try {
-					annotations.add(this.createAnnotation(cas, jsonAnnotations.getJSONObject(i), getAnnotationClass(annotationName)));
+					annotations.add(this.createAnnotation(cas, annotationName, jsonAnnotations.getJSONObject(i)));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -84,9 +86,9 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 
 	protected abstract Class<? extends Annotation> getAnnotationClass(String name) throws NoMatchingAnnotationException;
 
-	protected Annotation createAnnotation(JCas cas, JSONObject annotationJson, Class<? extends Annotation> annotationClass)
+	protected Annotation createAnnotation(JCas cas, String annotationName, JSONObject annotationJson)
 			throws Exception {
-		Annotation annotation = annotationClass.getConstructor(JCas.class).newInstance(cas);
+		Annotation annotation = getAnnotationClass(annotationName).getConstructor(JCas.class).newInstance(cas);
 
 		annotationJson.keys().forEachRemaining(field -> addFieldToAnnotation(cas, annotationJson, annotation, field));
 
@@ -96,8 +98,7 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 	protected void addFieldToAnnotation(JCas cas, JSONObject annotationJson, Annotation annotation, String field) {
 		try {
 			Feature feature = cas.getRequiredFeature(annotation.getType(), field);
-			annotation.setFeatureValueFromString(feature,
-					annotationJson.get(field).toString());
+			annotation.setFeatureValueFromString(feature, annotationJson.get(field).toString());
 		} catch (CASException e) {
 			e.printStackTrace();
 		}

@@ -159,16 +159,8 @@ protocols deal with the JSON-ified CAS object, which has the form:
     }
   }
 #+END_SRC
-**** =HttpAnnotator=
-- In the global properties file, write down the Annotator's name and
-  the full internet address that will be used to access it.
-- The superclass =HttpAnnotator= uses =addFieldToAnnotation()= to
-  convert from the fields of JSON it receives to usable data. The
-  method only works with primitives, so if you have something more
-  complex in your Annotation you will have to override the method to
-  suit your needs. It is suggested that you still use
-  =addFieldToAnnotation()= to convert primitive fields.
-** Protocol
+**** =HttpAnnotator= Communication Protocol
+***** Description
 Java annotators will act as clients to the external annotators, which
 will act as servers, the two of which will communicate over HTTP.
 
@@ -176,9 +168,22 @@ Most data will be sent in JSON format. These JSON blobs will be
 un-prettified and written on a /single line/. The examples below are
 prettified, and as such /are not valid/, however for readability we've
 formatted them as such.
-*** Setup
+***** Usage
+- In the global configuration file (written as a JSON object), write
+  down the Annotator's name and the full internet address that will be
+  used to access it. An example is given below.
+- The superclass =HttpAnnotator= uses =addFieldToAnnotation()= to
+  convert from the fields of JSON it receives to usable data. The
+  method only works with primitives, so if you have something more
+  complex in your Annotation you will have to override the method to
+  suit your needs. It is suggested that you still use
+  =addFieldToAnnotation()= to convert primitive fields.
+- The external Annotator should expect a configuration message once
+  the connection is established.
+***** Example Configuration
 Each annotator pair will use a set address and port number read in
-from a JSON configuration file formatted as a list of objects in this form:
+from a JSON configuration file formatted as a list of objects in this
+form:
 #+BEGIN_SRC javascript
   {
       "annotator_name": {
@@ -191,16 +196,17 @@ from a JSON configuration file formatted as a list of objects in this form:
       }
   }
 #+END_SRC
-*** Configuration
-After the servers are set up, the Java annotators will send a request
-with the configuration details pulled from the =UimaContext= object,
-again in JSON. The names of the annotations and annotation field keys
-that will be used are also sent to the server at this point.
-*** Basic Communication
-Standard communications will use a =GET= request, which will include a
-JSON-ified CAS object as the body of the HTTP request. The server will
-then respond with a JSON object with a list of annotations by type,
-where each of the fields of the goal annotation are specified:
+***** Communication
+Standard communications will use a multipart =POST= request. The body
+of this request will be a sequence of pertinent pieces of data, such
+as binary blobs of audio or video along with the JSON-ified CAS
+object. The various pieces of data must be agreed upon by both the
+sender and receiver, but the CAS will /always/ be transmitted.
+
+The server will then respond with an HTTP Response which, if
+successful, includes a JSON object with a list of annotations by type,
+where each of the fields of the goal annotation are specified as the
+body of the response:
 #+BEGIN_SRC javascript
   {
       "my_string_annotation": [
@@ -225,8 +231,3 @@ where each of the fields of the goal annotation are specified:
       ]
   }
 #+END_SRC
-*** Advanced Communication
-Prior to sending the basic =GET= request, the client annotator will
-=PUT= binary files onto the server annotator in locations specified in
-the configuration state (preferably in a =UimaContext= configuration
-field). These files will then be read as input in the server.
