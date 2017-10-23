@@ -57,11 +57,11 @@ Annotators are the fundamental building block of the UIMA framework,
 ([[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/tutorials_and_users_guides/tutorials_and_users_guides.html][see here for a UIMA tutorial]]). As such, adding Annotators (and
 Annotations) is the key way of adding functionality to our system.
 
-Annotators can be written either in effectively any language, but no
-matter what they have to be bound to a logical Annotator in Java. We
-will define a _Core Annotator_ to be an Annotator written completely
-in Java, and an _External Annotator_ to be an Annotator written
-primarily in another language.
+Annotators can be written in effectively any language, but no matter
+what they have to be bound to a logical Annotator in Java. We will
+define a _Core Annotator_ to be an Annotator written completely in
+Java, and an _External Annotator_ to be an Annotator written primarily
+in another language.
 *** Requirements
 You /will/ need to use Eclipse. There is a tutorial for setting it up
 [[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/overview_and_setup/overview_and_setup.html#ugr.ovv.eclipse_setup][here]]. Aside from that, make sure that UIMA is installed and set up.
@@ -70,8 +70,9 @@ Right click on the =desc= folder and create a new "Analysis Engine
 Descriptor File." Use the appropriate Eclipse view to edit the
 underlying XML file according to your needs, adding Parameters and
 Types as necessary. See [[https://uima.apache.org/doc-uima-annotator.html][this tutorial]] on how to create a simple
-Annotator. Create and specify the corresponding Java Annotator, and
-everything will be set up.
+Annotator. Create the corresponding Java Annotator, add the
+implementation details, and set it as the relevant class in the
+descriptor file.
 *** Writing an External Annotator
 Perform the same steps necessary for creating a Core Annotator, but
 instead of extending =JCasAnnotator_ImplBase=, extend one of the
