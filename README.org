@@ -73,6 +73,19 @@ Types as necessary. See [[https://uima.apache.org/doc-uima-annotator.html][this 
 Annotator. Create the corresponding Java Annotator, add the
 implementation details, and set it as the relevant class in the
 descriptor file.
+
+If you want your analysis engine to be part of an Aggregate Analysis
+Engine (essentially a chain of Annotators, each of which reliant upon
+the output of earlier Annotators; more details [[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/tutorials_and_users_guides/tutorials_and_users_guides.html#ugr.tug.aae.building_aggregates][here]]), note that you'll
+also have to create a separate Analysis Engine Descriptor File to
+define the chain you wish to create.
+
+All Annotators, in the end, are combined together into the
+=MainAnalysisEngine=, an Aggregate Engine and the only one loaded in
+by the =main= method in code. The pipeline is set up as a tree, and as
+such, to add a new Annotator, you must add it to the appropriate
+Aggregate Analysis Engine (be that the =MainAnalysisEngine= or one of
+its sub-Annotators) for it to be put in use.
 *** Writing an External Annotator
 Perform the same steps necessary for creating a Core Annotator, but
 instead of extending =JCasAnnotator_ImplBase=, extend one of the
@@ -87,9 +100,9 @@ to whatever communication protocol you're using. Details on each
 protocol are given below if you need to implement something not yet
 created for your language of choice.
 
-Please do not integrate your communication protocol into the same
-class / structure as your Annotator. Share your work with others and
-keep everyone from rewriting the same code.
+/Please do not integrate your communication protocol into the same/
+/class / structure as your Annotator. Share your work with others and/
+/keep everyone from rewriting the same code./
 
 After that, use the interface provided by the language to implement
 your annotator accordingly. Most if not all of the communication
