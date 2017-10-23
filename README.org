@@ -52,6 +52,122 @@ under the =bin/= folder.
     =edu_rosehulman_aixprize=.
   + Make sure you've run =source catkin_ws/setup.bash= during this
     terminal session. (Better yet, add it to your =~/.bashrc=
+** How to Write an Annotator
+Annotators are the fundamental building block of the UIMA framework,
+([[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/tutorials_and_users_guides/tutorials_and_users_guides.html][see here for a UIMA tutorial]]). As such, adding Annotators (and
+Annotations) is the key way of adding functionality to our system.
+
+Annotators can be written either in effectively any language, but no
+matter what they have to be bound to a logical Annotator in Java. We
+will define a _Core Annotator_ to be an Annotator written completely
+in Java, and an _External Annotator_ to be an Annotator written
+primarily in another language.
+*** Requirements
+You /will/ need to use Eclipse. There is a tutorial for setting it up
+[[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/overview_and_setup/overview_and_setup.html#ugr.ovv.eclipse_setup][here]]. Aside from that, make sure that UIMA is installed and set up.
+*** Writing a Core Annotator
+Right click on the =desc= folder and create a new "Analysis Engine
+Descriptor File." Use the appropriate Eclipse view to edit the
+underlying XML file according to your needs, adding Parameters and
+Types as necessary. See [[https://uima.apache.org/doc-uima-annotator.html][this tutorial]] on how to create a simple
+Annotator. Create and specify the corresponding Java Annotator, and
+everything will be set up.
+*** Writing an External Annotator
+Perform the same steps necessary for creating a Core Annotator, but
+instead of extending =JCasAnnotator_ImplBase=, extend one of the
+various abstract classes used for communicating with external
+annotators (such as =HttpAnnotator=). These abstract classes isolate
+the communication logic and ensure your Annotator adheres to the
+communication protocol. Details on what is required for the different
+abstract Annotators are given below.
+
+In the external language, write or use corresponding code that adheres
+to whatever communication protocol you're using. Details on each
+protocol are given below if you need to implement something not yet
+created for your language of choice.
+
+Please do not integrate your communication protocol into the same
+class / structure as your Annotator. Share your work with others and
+keep everyone from rewriting the same code.
+
+After that, use the interface provided by the language to implement
+your annotator accordingly. Most if not all of the communication
+protocols deal with the JSON-ified CAS object, which has the form:
+#+BEGIN_SRC javascript
+  {
+    "_context": {
+      "_types": {
+        "DocumentAnnotation": {
+          "_id": "uima.tcas.DocumentAnnotation",
+          "_feature_types": {
+            "sofa": "_ref"
+          }
+        },
+        "Sofa": {
+          "_id": "uima.cas.Sofa",
+          "_feature_types": {
+            "sofaArray": "_ref"
+          }
+        },
+        "Annotation": {
+          "_id": "uima.tcas.Annotation",
+          "_feature_types": {
+            "sofa": "_ref"
+          },
+          "_subtypes": [
+            "DocumentAnnotation"
+          ]
+        },
+        "AnnotationBase": {
+          "_id": "uima.cas.AnnotationBase",
+          "_feature_types": {
+            "sofa": "_ref"
+          },
+          "_subtypes": [
+            "Annotation"
+          ]
+        },
+        "TOP": {
+          "_id": "uima.cas.TOP",
+          "_subtypes": [
+            "AnnotationBase",
+            "Sofa"
+          ]
+        }
+      }
+    },
+    "_views": {
+      "_InitialView": {
+        "DocumentAnnotation": [
+          {
+            "sofa": 1,
+            "begin": 0,
+            "end": 62,
+            "language": "x-unspecified"
+          }
+        ]
+      }
+    },
+    "_referenced_fss": {
+      "1": {
+        "_type": "Sofa",
+        "sofaNum": 1,
+        "sofaID": "_InitialView",
+        "mimeType": "text",
+        "sofaString": "This is some document text."
+      }
+    }
+  }
+#+END_SRC
+**** =HttpAnnotator=
+- In the global properties file, write down the Annotator's name and
+  the full internet address that will be used to access it.
+- The superclass =HttpAnnotator= uses =addFieldToAnnotation()= to
+  convert from the fields of JSON it receives to usable data. The
+  method only works with primitives, so if you have something more
+  complex in your Annotation you will have to override the method to
+  suit your needs. It is suggested that you still use
+  =addFieldToAnnotation()= to convert primitive fields.
 ** Protocol
 Java annotators will act as clients to the external annotators, which
 will act as servers, the two of which will communicate over HTTP.
