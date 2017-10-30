@@ -63,7 +63,7 @@ define a _Core Annotator_ to be an Annotator written completely in
 Java, and an _External Annotator_ to be an Annotator written primarily
 in another language.
 *** Requirements
-You /will/ need to use Eclipse. There is a tutorial for setting it up
+You /will need/ to use Eclipse. There is a tutorial for setting it up
 [[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/overview_and_setup/overview_and_setup.html#ugr.ovv.eclipse_setup][here]]. Aside from that, make sure that UIMA is installed and set up.
 *** Writing a Core Annotator
 Right click on the =desc= folder and create a new "Analysis Engine

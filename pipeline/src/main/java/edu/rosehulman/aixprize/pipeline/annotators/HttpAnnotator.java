@@ -22,7 +22,7 @@ import org.json.*;
 public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 	protected static class NoMatchingAnnotationException extends Exception {
 		private static final long serialVersionUID = 7484866497315133495L;
-		}
+	}
 
 	private URI uri;
 	private CloseableHttpClient client;
