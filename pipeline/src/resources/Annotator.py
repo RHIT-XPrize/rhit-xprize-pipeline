@@ -1,10 +1,9 @@
-
 from tornado.web import RequestHandler
 import json
 
 
 class Annotator(RequestHandler):
-    def process(self, data):
+    def process(self, data, files):
         raise NotImplemented('Annotators must implement `process` method')
 
     def initialize(self):
@@ -13,7 +12,8 @@ class Annotator(RequestHandler):
 
     def post(self):
         body = json.loads(self.request.body.decode())
-        self.process(body)
+        files = self.request.files
+        self.process(body, files)
         resp = json.dumps(self._annotation_to_dict(self._annotations))
         self.write(resp)
 

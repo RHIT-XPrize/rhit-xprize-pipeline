@@ -1,5 +1,3 @@
-
-
 from Annotation import Annotation
 from Annotator import Annotator
 
@@ -21,7 +19,7 @@ class ColorAnnotator(Annotator):
         self.color_words = ['red', 'blue', 'yellow']
         self.annotation_types.append(Color)
 
-    def process(self, data):
+    def process(self, data, files):
         sofa_string = data['_referenced_fss']['1']['sofaString']
         for word in self.color_words:
             if word in sofa_string:
