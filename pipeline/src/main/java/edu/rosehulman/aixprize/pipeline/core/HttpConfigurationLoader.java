@@ -9,7 +9,7 @@ import org.json.*;
 import edu.rosehulman.aixprize.pipeline.annotators.HttpAnnotator;
 
 public class HttpConfigurationLoader {
-	private static final String CONFIG_FILE_NAME = "servers.json";
+	private static final String CONFIG_FILE_NAME = "src/edu_rosehulman_aixprize/servers.json";
 
 	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;
@@ -22,11 +22,9 @@ public class HttpConfigurationLoader {
 
 	private static HttpConfigurationLoader self;
 
-	public static HttpConfigurationLoader getInstance() {
-		synchronized (self) {
-			if (self == null)
-				self = new HttpConfigurationLoader();
-		}
+	public synchronized static HttpConfigurationLoader getInstance() {
+		if (self == null)
+			self = new HttpConfigurationLoader();
 
 		return self;
 	}
