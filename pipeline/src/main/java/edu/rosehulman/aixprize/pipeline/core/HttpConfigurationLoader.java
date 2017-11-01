@@ -11,10 +11,10 @@ import edu.rosehulman.aixprize.pipeline.annotators.HttpAnnotator;
 public class HttpConfigurationLoader {
 	private static final String CONFIG_FILE_NAME = "servers.json";
 
-	public static class NoConfigurationSpecified extends Exception {
+	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;
 
-		public NoConfigurationSpecified(Class<? extends HttpAnnotator> annotator) {
+		public NoConfigurationFound(Class<? extends HttpAnnotator> annotator) {
 			super("No configuration loaded for " + annotator.getName());
 		}
 	}
@@ -70,16 +70,16 @@ public class HttpConfigurationLoader {
 	}
 
 	public String getAddress(Class<? extends HttpAnnotator> annotator)
-		throws NoConfigurationSpecified {
+		throws NoConfigurationFound {
 		if (!addressMap.containsKey(annotator))
-			throw new NoConfigurationSpecified(annotator);
+			throw new NoConfigurationFound(annotator);
 		return addressMap.get(annotator);
 	}
 
 	public int getPort(Class<? extends HttpAnnotator> annotator)
-			throws NoConfigurationSpecified {
+			throws NoConfigurationFound {
 		if (!portMap.containsKey(annotator))
-			throw new NoConfigurationSpecified(annotator);
+			throw new NoConfigurationFound(annotator);
 
 		return portMap.get(annotator);
 	}

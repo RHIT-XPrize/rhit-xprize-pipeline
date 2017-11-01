@@ -19,6 +19,9 @@ import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
+import edu.rosehulman.aixprize.pipeline.core.HttpConfigurationLoader;
+import edu.rosehulman.aixprize.pipeline.core.HttpConfigurationLoader.NoConfigurationFound;
+
 public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 	protected static class NoMatchingAnnotationException extends Exception {
 		private static final long serialVersionUID = 7484866497315133495L;
@@ -29,13 +32,15 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
+		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
+
 		try {
-			this.uri = new URIBuilder().setHost("127.0.0.1")
+			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
 									   .setScheme("http")
-									   .setPort(8080)
+									   .setPort(configurationLoader.getPort(this.getClass()))
 									   .build();
 			this.client = HttpClientBuilder.create().build();
-		} catch (URISyntaxException e) {
+		} catch (URISyntaxException | NoConfigurationFound e) {
 			e.printStackTrace();
 		}
 	}
