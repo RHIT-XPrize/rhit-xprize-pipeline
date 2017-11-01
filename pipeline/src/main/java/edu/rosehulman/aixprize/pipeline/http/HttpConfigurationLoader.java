@@ -1,4 +1,4 @@
-package edu.rosehulman.aixprize.pipeline.core;
+package edu.rosehulman.aixprize.pipeline.http;
 
 import java.io.*;
 import java.util.*;
@@ -6,10 +6,8 @@ import java.util.*;
 import org.apache.commons.io.IOUtils;
 import org.json.*;
 
-import edu.rosehulman.aixprize.pipeline.annotators.HttpAnnotator;
-
 public class HttpConfigurationLoader {
-	private static final String CONFIG_FILE_NAME = "src/edu_rosehulman_aixprize/servers.json";
+	protected static final String CONFIG_FILE_NAME = "src/edu_rosehulman_aixprize/servers.json";
 
 	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;

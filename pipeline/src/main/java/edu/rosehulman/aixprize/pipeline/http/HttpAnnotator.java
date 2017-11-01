@@ -1,4 +1,4 @@
-package edu.rosehulman.aixprize.pipeline.annotators;
+package edu.rosehulman.aixprize.pipeline.http;
 
 import java.io.*;
 import java.net.*;
@@ -19,11 +19,10 @@ import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
-import edu.rosehulman.aixprize.pipeline.core.HttpConfigurationLoader;
-import edu.rosehulman.aixprize.pipeline.core.HttpConfigurationLoader.NoConfigurationFound;
+import edu.rosehulman.aixprize.pipeline.http.HttpConfigurationLoader.NoConfigurationFound;
 
 public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
-	protected static class NoMatchingAnnotationException extends Exception {
+	public static class NoMatchingAnnotationException extends Exception {
 		private static final long serialVersionUID = 7484866497315133495L;
 	}
 
