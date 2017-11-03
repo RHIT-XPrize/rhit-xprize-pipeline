@@ -4,7 +4,7 @@ import json
 
 
 class Annotator(RequestHandler):
-    def process(self, data):
+    def process(self, data, files=None):
         raise NotImplemented('Annotators must implement `process` method')
 
     def initialize(self):
@@ -12,8 +12,9 @@ class Annotator(RequestHandler):
         self._annotations = []
 
     def post(self):
-        body = json.loads(self.request.body.decode())
-        self.process(body)
+        cas = self.get_argument('cas', default=None)
+        body = json.loads(cas)
+        self.process(body, files=self.request.files['data'])
         resp = json.dumps(self._annotation_to_dict(self._annotations))
         self.write(resp)
 
