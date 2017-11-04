@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.jcas.JCas;
@@ -41,7 +42,8 @@ public class RequestCreator {
 
 	private void addBinaries(Map<String, byte[]> binaries) {
 		for (Entry<String, byte[]> entry : binaries.entrySet()) {
-			multipartBuilder.addBinaryBody(entry.getKey(), entry.getValue());
+			multipartBuilder.addBinaryBody(entry.getKey(), entry.getValue(),
+					ContentType.DEFAULT_BINARY, entry.getKey());
 		}
 	}
 
