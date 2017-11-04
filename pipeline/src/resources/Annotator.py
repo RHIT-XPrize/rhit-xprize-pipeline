@@ -12,9 +12,8 @@ class Annotator(RequestHandler):
         self._annotations = []
 
     def post(self):
-        cas = self.get_argument('cas', default=None)
-        body = json.loads(cas)
-        self.process(body, files=self.request.files['data'])
+        data = self.request.files
+        self.process(self.request.files)
         resp = json.dumps(self._annotation_to_dict(self._annotations))
         self.write(resp)
 

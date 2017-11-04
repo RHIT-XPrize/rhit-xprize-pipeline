@@ -27,7 +27,9 @@ class ColorAnnotator(Annotator):
         self.color_words = ['red', 'blue', 'yellow']
         self.annotation_types.append(Color)
 
-    def process(self, cas, files=None):
+    def process(self, data):
+        cas = json.loads(data['cas'][0]['body'].decode())
+        files = data['data']
         sofa_string = cas['_referenced_fss']['1']['sofaString']
         to_analyze = sofa_string + files[0]['body'].decode()
         for word in self.color_words:
