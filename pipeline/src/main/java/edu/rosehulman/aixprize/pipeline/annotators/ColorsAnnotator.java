@@ -2,6 +2,7 @@ package edu.rosehulman.aixprize.pipeline.annotators;
 
 import org.apache.uima.jcas.tcas.Annotation;
 
+import edu.rosehulman.aixprize.pipeline.http.HttpAnnotator;
 import edu.rosehulman.aixprize.pipeline.types.Color;
 
 /**
@@ -13,6 +14,6 @@ public class ColorsAnnotator extends HttpAnnotator {
 	protected Class<? extends Annotation> getAnnotationClass(String name) throws NoMatchingAnnotationException {
 		if (name.equals("Color"))
 			return Color.class;
-		throw new HttpAnnotator.NoMatchingAnnotationException();
+		throw new NoMatchingAnnotationException();
 	}
 }
