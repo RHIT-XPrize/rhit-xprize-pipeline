@@ -39,6 +39,12 @@ public class RequestCreator {
 		return multipartBuilder.build();
 	}
 
+	private void addBinaries(Map<String, byte[]> binaries) {
+		for (Entry<String, byte[]> entry : binaries.entrySet()) {
+			multipartBuilder.addBinaryBody(entry.getKey(), entry.getValue());
+		}
+	}
+
 	private Map<String, byte[]> readBinaries(JCas cas) {
 		Map<String, byte[]> binaries = new HashMap<>();
 
@@ -61,15 +67,19 @@ public class RequestCreator {
 
 	private void addViewSofas(JCas cas, Map<String, byte[]> binaries) {
 		try {
-			cas.getViewIterator().forEachRemaining(view ->
+			getViewIterator().forEachRemaining(view ->
 				binaries.putAll(readBinaries(view)));
 		} catch (CASException e) { /* No-op */ }
 	}
 
-	private void addBinaries(Map<String, byte[]> binaries) {
-		for (Entry<String, byte[]> entry : binaries.entrySet()) {
-			multipartBuilder.addBinaryBody(entry.getKey(), entry.getValue());
-		}
+	private Iterator<JCas> getViewIterator() throws CASException {
+		Iterator<JCas> views = cas.getViewIterator();
+
+		// The first "view" is actually the current cas,
+		// so remove that from the iterator before returning.
+		views.next();
+
+		return views;
 	}
 
 	private void addCas(MultipartEntityBuilder multipartBuilder, JCas cas) throws IOException {
