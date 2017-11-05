@@ -28,7 +28,6 @@ class ColorAnnotator(Annotator):
         self.annotation_types.append(Color)
 
     def process(self, cas, files):
-        print('Files:', files)
         strs = '\n'.join(map(lambda x: x[0]['body'].decode(), files.values()))
         sofa_string = cas['_referenced_fss']['1']['sofaString']
         to_analyze = sofa_string + strs
