@@ -4,7 +4,7 @@ import json
 
 
 class Annotator(RequestHandler):
-    def process(self, data, files=None):
+    def process(self, cas, data):
         raise NotImplemented('Annotators must implement `process` method')
 
     def initialize(self):
