@@ -14,4 +14,6 @@ install:
   - source /opt/ros/indigo/setup.bash
   - mkdir -p ~/aixprize_ws/src
 
-script: tree
+script:
+  - pwd
+  - tree
