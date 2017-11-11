@@ -9,6 +9,7 @@ before_install:
 install:
   - sudo apt install tree
   - sudo apt install ros-indigo-desktop-full
+  - sudo apt install ros-indigo-rosjava
   - sudo rosdep init
   - rosdep update
   - source /opt/ros/indigo/setup.bash
@@ -16,5 +17,5 @@ install:
 script:
   - mkdir -p ~/aixprize_ws/src
   - cd ..
-  - mv rhit-xprize-pipeline ~/aixprize_ws/src/
+  - mv rhit-xprize-pipeline ~/aixprize_ws/src/edu_rosehulman_aixprize
   - catkin_make -C ~/aixprize_ws
