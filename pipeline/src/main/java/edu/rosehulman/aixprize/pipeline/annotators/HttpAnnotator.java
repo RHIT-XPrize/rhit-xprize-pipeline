@@ -5,9 +5,8 @@ import java.net.*;
 import java.util.*;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.*;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.*;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -15,7 +14,6 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.*;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
-import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
@@ -47,20 +45,12 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		try {
-			HttpUriRequest req = createRequest(cas);
+			RequestCreator requestCreator = new RequestCreator(uri, cas);
+			HttpUriRequest req = requestCreator.createRequest();
 			receiveAnnotations(cas, this.client.execute(req));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private HttpUriRequest createRequest(JCas cas) throws IOException {
-		StringWriter serialized = new StringWriter();
-		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
-		String sCas = serialized.toString();
-		return RequestBuilder.post(this.uri)
-							  .setEntity(new StringEntity(sCas))
-							  .build();
 	}
 
 	private void receiveAnnotations(JCas cas, HttpResponse resp) throws IOException {
