@@ -11,3 +11,4 @@ install:
   - sudo rosdep init
   - rosdep update
   - source /opt/ros/indigo/setup.bash
+  - mkdir -p ~/aixprize_ws/src
