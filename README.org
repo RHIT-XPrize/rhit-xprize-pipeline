@@ -1,4 +1,5 @@
 * Rose-Hulman AI XPrize Data Pipeline
+[[https://travis-ci.org/RHIT-XPrize/rhit-xprize-pipeline.svg?branch=master]]
 [[https://rhit-xprize.github.io/][Presentations]]
 ** Introduction
 IBM is holding an AI XPrize competition that our school, Rose-Hulman
