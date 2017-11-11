@@ -1,4 +1,4 @@
-package edu.rosehulman.aixprize.pipeline.annotators;
+package edu.rosehulman.aixprize.pipeline.http;
 
 import java.io.*;
 import java.net.URI;
@@ -14,7 +14,7 @@ import org.apache.uima.cas.CASException;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.json.JsonCasSerializer;
 
-public class RequestCreator {
+class RequestCreator {
 	private URI uri;
 	private JCas cas;
 	private MultipartEntityBuilder multipartBuilder;

@@ -17,7 +17,6 @@ import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
-import edu.rosehulman.aixprize.pipeline.annotators.RequestCreator;
 import edu.rosehulman.aixprize.pipeline.http.HttpConfigurationLoader.NoConfigurationFound;
 
 public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
