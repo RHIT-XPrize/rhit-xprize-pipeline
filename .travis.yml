@@ -7,7 +7,6 @@ before_install:
   - sudo apt update
 
 install:
-  - sudo apt install tree
   - sudo apt install ros-indigo-desktop-full
   - sudo apt install ros-indigo-rosjava
   - sudo rosdep init
