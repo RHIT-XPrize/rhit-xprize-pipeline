@@ -14,6 +14,12 @@ class Color(Annotation):
         self.begin = start
         self.end = end
 
+def find_in_str(target, string, start=0):
+    idx = string.find(target)
+    if idx >= 0:
+        return [ Color(target, start + idx, start + idx + len(target) - 1) ] + \
+            find_in_str(target, string[idx + 1:], start=start + idx + 1)
+    return [ ]
 
 class ColorAnnotator(Annotator):
     def initialize(self):
@@ -21,11 +27,14 @@ class ColorAnnotator(Annotator):
         self.color_words = ['red', 'blue', 'yellow']
         self.annotation_types.append(Color)
 
-    def process(self, data):
-        sofa_string = data['_referenced_fss']['1']['sofaString']
+    def process(self, cas, files):
+        strs = '\n'.join(map(lambda x: x[0]['body'].decode(), files.values()))
+        sofa_string = cas['_referenced_fss']['1']['sofaString']
+        to_analyze = sofa_string + strs
         for word in self.color_words:
-            if word in sofa_string:
-                self.add_annotation(Color(word, -1, -1))
+            anns = find_in_str(word, to_analyze)
+            for a in anns:
+                self.add_annotation(a)
 
 
 if __name__ == '__main__':

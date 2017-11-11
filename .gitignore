@@ -295,3 +295,4 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/java,macos,maven,emacs,gradle,eclipse,windows,intellij
 *.pyc
+__pycache__/
