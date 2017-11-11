@@ -12,7 +12,7 @@ public class HttpConfigurationLoader {
 	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;
 
-		public NoConfigurationFound(Class<? extends HttpAnnotator> annotator) {
+		public NoConfigurationFound(Class<? extends HttpAnnotatorProtocol> annotator) {
 			super("No configuration loaded for " + annotator.getName());
 		}
 	}
@@ -65,14 +65,14 @@ public class HttpConfigurationLoader {
 		});
 	}
 
-	public String getAddress(Class<? extends HttpAnnotator> annotator)
+	public String getAddress(Class<? extends HttpAnnotatorProtocol> annotator)
 		throws NoConfigurationFound {
 		if (!addressMap.containsKey(annotator))
 			throw new NoConfigurationFound(annotator);
 		return addressMap.get(annotator);
 	}
 
-	public int getPort(Class<? extends HttpAnnotator> annotator)
+	public int getPort(Class<? extends HttpAnnotatorProtocol> annotator)
 			throws NoConfigurationFound {
 		if (!portMap.containsKey(annotator))
 			throw new NoConfigurationFound(annotator);

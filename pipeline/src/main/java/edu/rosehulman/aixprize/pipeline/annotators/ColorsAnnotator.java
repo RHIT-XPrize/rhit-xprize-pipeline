@@ -1,19 +1,14 @@
 package edu.rosehulman.aixprize.pipeline.annotators;
 
-import org.apache.uima.jcas.tcas.Annotation;
-
-import edu.rosehulman.aixprize.pipeline.http.HttpAnnotator;
-import edu.rosehulman.aixprize.pipeline.types.Color;
+import edu.rosehulman.aixprize.pipeline.core.ExternalAnnotator;
+import edu.rosehulman.aixprize.pipeline.http.HttpAnnotatorProtocol;
 
 /**
  * Communicates with a Python script to find color words in a file.
  */
-public class ColorsAnnotator extends HttpAnnotator {
+public class ColorsAnnotator extends ExternalAnnotator {
 
-	@Override
-	protected Class<? extends Annotation> getAnnotationClass(String name) throws NoMatchingAnnotationException {
-		if (name.equals("Color"))
-			return Color.class;
-		throw new NoMatchingAnnotationException();
+	public ColorsAnnotator() {
+		super(new HttpAnnotatorProtocol());
 	}
 }

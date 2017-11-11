@@ -1,12 +1,26 @@
 package edu.rosehulman.aixprize.pipeline.core;
 
-import java.util.List;
-
 import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
+import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.jcas.JCas;
-import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.resource.ResourceInitializationException;
 
-public interface ExternalAnnotator {
-	default void initialize(UimaContext context) { /* No-op */ }
-	List<Annotation> process(JCas cas);
+public abstract class ExternalAnnotator extends JCasAnnotator_ImplBase {
+	private ExternalAnnotatorProtocol protocol;
+
+	public ExternalAnnotator(ExternalAnnotatorProtocol protocol) {
+		this.protocol = protocol;
+	}
+
+	@Override
+	public void initialize(UimaContext context) throws ResourceInitializationException {
+		protocol.initialize(context);
+	}
+
+	@Override
+	public void process(JCas cas) throws AnalysisEngineProcessException {
+		protocol.transmitCas(cas);
+		protocol.addAnnotations(cas);
+	}
 }
