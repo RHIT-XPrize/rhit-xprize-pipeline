@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.json.*;
 
 public class HttpConfigurationLoader {
@@ -12,7 +13,7 @@ public class HttpConfigurationLoader {
 	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;
 
-		public NoConfigurationFound(Class<? extends HttpAnnotatorProtocol> annotator) {
+		public NoConfigurationFound(Class<? extends JCasAnnotator_ImplBase> annotator) {
 			super("No configuration loaded for " + annotator.getName());
 		}
 	}
@@ -65,14 +66,14 @@ public class HttpConfigurationLoader {
 		});
 	}
 
-	public String getAddress(Class<? extends HttpAnnotatorProtocol> annotator)
+	public String getAddress(Class<? extends JCasAnnotator_ImplBase> annotator)
 		throws NoConfigurationFound {
 		if (!addressMap.containsKey(annotator))
 			throw new NoConfigurationFound(annotator);
 		return addressMap.get(annotator);
 	}
 
-	public int getPort(Class<? extends HttpAnnotatorProtocol> annotator)
+	public int getPort(Class<? extends JCasAnnotator_ImplBase> annotator)
 			throws NoConfigurationFound {
 		if (!portMap.containsKey(annotator))
 			throw new NoConfigurationFound(annotator);

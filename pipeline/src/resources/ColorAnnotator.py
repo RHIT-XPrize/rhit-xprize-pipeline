@@ -1,5 +1,3 @@
-
-
 from Annotation import Annotation
 from Annotator import Annotator
 
@@ -13,6 +11,9 @@ class Color(Annotation):
         self.color = color
         self.begin = start
         self.end = end
+
+    def name():
+        return "edu.rosehulman.aixprize.pipeline.types.Color"
 
 def find_in_str(target, string, start=0):
     idx = string.find(target)

@@ -9,6 +9,6 @@ import edu.rosehulman.aixprize.pipeline.http.HttpAnnotatorProtocol;
 public class ColorsAnnotator extends ExternalAnnotator {
 
 	public ColorsAnnotator() {
-		super(new HttpAnnotatorProtocol());
+		super(new HttpAnnotatorProtocol(ColorsAnnotator.class));
 	}
 }

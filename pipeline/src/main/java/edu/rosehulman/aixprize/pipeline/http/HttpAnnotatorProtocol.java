@@ -9,6 +9,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.*;
 import org.apache.uima.UimaContext;
+import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.cas.*;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
@@ -22,24 +23,36 @@ public class HttpAnnotatorProtocol implements ExternalAnnotatorProtocol {
 		private static final long serialVersionUID = 7484866497315133495L;
 	}
 
+	private Class<? extends JCasAnnotator_ImplBase> annotator;
+
 	private URI uri;
 	private CloseableHttpClient client;
 
 	private HttpResponse response;
 
-	@Override
-	public void initialize(UimaContext aContext) {
-		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
+	public HttpAnnotatorProtocol(Class<? extends JCasAnnotator_ImplBase> boundAnnotator) {
+		annotator = boundAnnotator;
+	}
 
+	@Override
+	public void initialize(UimaContext context) {
 		try {
-			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
-									   .setScheme("http")
-									   .setPort(configurationLoader.getPort(this.getClass()))
-									   .build();
+			this.uri = buildUri();
 			this.client = HttpClientBuilder.create().build();
 		} catch (URISyntaxException | NoConfigurationFound e) {
 			e.printStackTrace();
 		}
+	}
+
+	private URI buildUri() throws URISyntaxException, NoConfigurationFound {
+		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
+		URIBuilder builder = new URIBuilder();
+
+		builder.setHost(configurationLoader.getAddress(annotator));
+		builder.setScheme("http");
+		builder.setPort(configurationLoader.getPort(annotator));
+
+		return builder.build();
 	}
 
 	@Override
@@ -47,7 +60,7 @@ public class HttpAnnotatorProtocol implements ExternalAnnotatorProtocol {
 		try {
 			RequestCreator requestCreator = new RequestCreator(uri, cas);
 			HttpUriRequest req = requestCreator.createRequest();
-			client.execute(req);
+			response = client.execute(req);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -83,7 +96,7 @@ public class HttpAnnotatorProtocol implements ExternalAnnotatorProtocol {
 		InputStream stream = response.getEntity().getContent();
 		InputStreamReader streamReader = new InputStreamReader(stream);
 		BufferedReader reader = new BufferedReader(streamReader);
-		
+
 		return new JSONObject(reader.readLine());
 	}
 
