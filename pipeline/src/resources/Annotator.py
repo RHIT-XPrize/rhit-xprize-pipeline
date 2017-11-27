@@ -1,4 +1,3 @@
-
 from tornado.web import RequestHandler
 import json
 
@@ -22,7 +21,8 @@ class Annotator(RequestHandler):
         self._annotations.append(annotation)
 
     def _annotation_to_dict(self, annotations):
-        annot_map = {c.__name__ : [] for c in self.annotation_types}
+        print("Annotation types: ", self.annotation_types)
+        annot_map = {c : [] for c in self.annotation_types}
         for x in annotations:
             class_name = x.name()
             annot_map[class_name].append(dict(x))
