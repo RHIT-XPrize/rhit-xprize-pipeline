@@ -24,22 +24,40 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		private static final long serialVersionUID = 7484866497315133495L;
 	}
 
+	private HttpConfigurationLoader configLoader;
 	private URI uri;
 	private CloseableHttpClient client;
 
+	public HttpAnnotator() {
+		this(HttpConfigurationLoader.getInstance());
+	}
+
+	public HttpAnnotator(HttpConfigurationLoader configLoader) {
+		this.configLoader = configLoader;
+	}
+
 	@Override
 	public void initialize(UimaContext aContext) throws ResourceInitializationException {
-		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
-
 		try {
-			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
-									   .setScheme("http")
-									   .setPort(configurationLoader.getPort(this.getClass()))
-									   .build();
-			this.client = HttpClientBuilder.create().build();
+			this.uri = buildURI();
+			this.client = buildHttpClient();
 		} catch (URISyntaxException | NoConfigurationFound e) {
 			e.printStackTrace();
 		}
+	}
+
+	private URI buildURI() throws URISyntaxException, NoConfigurationFound {
+		URIBuilder builder = new URIBuilder();
+
+		builder.setHost(configLoader.getAddress(this.getClass()));
+		builder.setPort(configLoader.getPort(this.getClass()));
+		builder.setScheme("http");
+
+		return builder.build();
+	}
+
+	private CloseableHttpClient buildHttpClient() {
+		return HttpClientBuilder.create().build();
 	}
 
 	@Override
