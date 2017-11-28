@@ -21,7 +21,6 @@ class Annotator(RequestHandler):
         self._annotations.append(annotation)
 
     def _annotation_to_dict(self, annotations):
-        print("Annotation types: ", self.annotation_types)
         annot_map = {c : [] for c in self.annotation_types}
         for x in annotations:
             class_name = x.name()
