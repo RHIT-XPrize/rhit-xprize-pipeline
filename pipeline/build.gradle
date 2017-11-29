@@ -49,7 +49,3 @@ dependencies {
 
   testCompile 'junit:junit:4.12'
 }
-
-test {
-  include 'src/test/java/**'
-}
