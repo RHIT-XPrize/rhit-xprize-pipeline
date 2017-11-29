@@ -78,11 +78,9 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		}
 	}
 
-	protected abstract Class<? extends Annotation> getAnnotationClass(String name) throws NoMatchingAnnotationException;
-
 	protected Annotation createAnnotation(JCas cas, String annotationName, JSONObject annotationJson)
 			throws Exception {
-		Annotation annotation = getAnnotationClass(annotationName).getConstructor(JCas.class).newInstance(cas);
+		Annotation annotation = (Annotation)Class.forName(annotationName).getConstructor(JCas.class).newInstance(cas);
 
 		annotationJson.keys().forEachRemaining(field -> addFieldToAnnotation(cas, annotationJson, annotation, field));
 

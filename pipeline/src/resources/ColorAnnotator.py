@@ -1,5 +1,3 @@
-
-
 from Annotation import Annotation
 from Annotator import Annotator
 
@@ -14,6 +12,10 @@ class Color(Annotation):
         self.begin = start
         self.end = end
 
+    @staticmethod
+    def name():
+        return "edu.rosehulman.aixprize.pipeline.types.Color"
+
 def find_in_str(target, string, start=0):
     idx = string.find(target)
     if idx >= 0:
@@ -25,7 +27,7 @@ class ColorAnnotator(Annotator):
     def initialize(self):
         super().initialize()
         self.color_words = ['red', 'blue', 'yellow']
-        self.annotation_types.append(Color)
+        self.annotation_types.append(Color.name())
 
     def process(self, cas, files):
         strs = '\n'.join(map(lambda x: x[0]['body'].decode(), files.values()))
