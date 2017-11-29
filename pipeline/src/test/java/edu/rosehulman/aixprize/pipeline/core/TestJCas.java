@@ -1,7 +1,6 @@
 package edu.rosehulman.aixprize.pipeline.core;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.*;
 import java.util.Iterator;
