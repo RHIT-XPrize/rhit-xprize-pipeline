@@ -12,7 +12,8 @@ class Color(Annotation):
         self.begin = start
         self.end = end
 
-    def name(self=None):
+    @staticmethod
+    def name():
         return "edu.rosehulman.aixprize.pipeline.types.Color"
 
 def find_in_str(target, string, start=0):
