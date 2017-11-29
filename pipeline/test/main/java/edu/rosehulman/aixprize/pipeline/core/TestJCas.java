@@ -17,6 +17,15 @@ import org.junit.*;
 public class TestJCas {
 	private JCas cas;
 
+	private void assertJCasIterator(Iterator<JCas> iterator, JCas... expected) {
+		for (int i = 0; i < expected.length; i++) {
+			assertTrue(iterator.hasNext());
+			assertEquals(expected[i], iterator.next());
+		}
+
+		assertFalse(iterator.hasNext());
+	}
+
 	@Before
 	public void setup() {
 		File descriptor = new File("desc/Mock.xml");
@@ -42,9 +51,39 @@ public class TestJCas {
 	}
 
 	@Test
-	public void testGetViewIteratorWithSingleInternalViews() throws CASException {
+	public void testGetViewIteratorWithSingleInternalViewsHasOneElement() throws CASException {
 		Iterator<JCas> viewIterator = cas.getViewIterator();
 		viewIterator.next();
 		assertFalse(viewIterator.hasNext());
+	}
+
+	@Test
+	public void testGetViewIteratorWithAddedViewsHoldsAllViews() throws CASException {
+		JCas view2 = cas.createView("view2");
+		JCas view1 = cas.createView("view1");
+
+		Iterator<JCas> viewIterator = cas.getViewIterator();
+
+		assertJCasIterator(viewIterator, cas, view2, view1);
+	}
+
+	@Test
+	public void testGetViewIteratorWithNestedViews() throws CASException {
+		JCas view2 = cas.createView("view2");
+		JCas view1InView2 = view2.createView("view1InView2");
+		JCas view1 = cas.createView("view1");
+		JCas viewInView1 = view1.createView("viewInView1");
+		JCas viewInViewInView1 = viewInView1.createView("viewInViewInView1");
+		JCas view2InView2 = view2.createView("view2InView2");
+
+		Iterator<JCas> viewIterator = cas.getViewIterator();
+
+		assertJCasIterator(viewIterator, cas,
+										 view2,
+										 view1InView2,
+										 view1,
+										 viewInView1,
+										 viewInViewInView1,
+										 view2InView2);
 	}
 }
