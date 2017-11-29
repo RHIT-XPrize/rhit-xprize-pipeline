@@ -51,7 +51,7 @@ class RequestCreator {
 		Map<String, byte[]> binaries = new HashMap<>();
 
 		addCurrentSofa(cas, binaries);
-		addViewSofas(cas, binaries);
+		addViewSofas(binaries);
 
 		return binaries;
 	}
@@ -67,7 +67,7 @@ class RequestCreator {
 		}
 	}
 
-	private void addViewSofas(JCas cas, Map<String, byte[]> binaries) {
+	private void addViewSofas(Map<String, byte[]> binaries) {
 		try {
 			getViewIterator().forEachRemaining(view ->
 				binaries.putAll(readBinaries(view)));
