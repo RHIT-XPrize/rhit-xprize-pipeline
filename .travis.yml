@@ -18,3 +18,4 @@ script:
   - cd ..
   - mv rhit-xprize-pipeline ~/aixprize_ws/src/edu_rosehulman_aixprize
   - catkin_make -C ~/aixprize_ws
+  - ~/aixprize_ws/src/edu_rosehulman_aixprize/gradlew -p ~/aixprize_ws/src/edu_rosehulman_aixprize/ test
