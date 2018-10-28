@@ -16,7 +16,13 @@
 
 /* This plugin is necessary for creating installApp tasks (i.e. executables) */
 apply plugin: 'application'
-mainClassName = 'org.ros.RosRun'
+mainClassName = 'edu.rosehulman.aixprize.pipeline.core.Controller'
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+}
 
 /*
  Dependencies can be on external maven artifacts (such as rosjava_core
@@ -30,11 +36,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-  /* An external maven artifact dependency */
-  compile 'org.ros.rosjava_core:rosjava:[0.2,0.3)'
-  /* Example of a local subproject dependency */
-  /* compile project(':sibling_gradle_project') */
-
   // https://mvnrepository.com/artifact/org.apache.uima/uimaj-core
   compile group: 'org.apache.uima', name: 'uimaj-core', version: '2.10.1'
 
@@ -46,4 +47,6 @@ dependencies {
 
   compile 'org.apache.httpcomponents:httpclient:4.5.3'
   compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.3'
+
+  compile group: 'commons-io', name: 'commons-io', version: '2.6'
 }

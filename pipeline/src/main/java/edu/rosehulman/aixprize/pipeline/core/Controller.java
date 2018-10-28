@@ -3,6 +3,7 @@ package edu.rosehulman.aixprize.pipeline.core;
 import java.io.*;
 
 import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.uima.UIMAFramework;
 import org.apache.uima.analysis_engine.*;
 import org.apache.uima.cas.text.AnnotationIndex;
@@ -10,19 +11,11 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
 import org.apache.uima.resource.*;
 import org.apache.uima.util.*;
-import org.ros.namespace.GraphName;
-import org.ros.node.*;
 
-public class Controller extends AbstractNodeMain {
+public class Controller {
 
-	@Override
-	public GraphName getDefaultNodeName() {
-		return GraphName.of("pipeline/core");
-	}
-
-	@Override
-	public void onStart(ConnectedNode connectedNode) {
-		Log log = connectedNode.getLog();
+	public static void main(String[] args) {
+		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
 		File colorsAnnotatorDescriptor
