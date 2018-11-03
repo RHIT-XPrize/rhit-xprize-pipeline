@@ -7,7 +7,7 @@ import org.apache.commons.io.IOUtils;
 import org.json.*;
 
 public class HttpConfigurationLoader {
-	protected static final String CONFIG_FILE_NAME = "src/edu_rosehulman_aixprize/servers.json";
+	protected static final String CONFIG_FILE_NAME = "desc/servers.json";
 
 	public static class NoConfigurationFound extends Exception {
 		private static final long serialVersionUID = -7148498252286690391L;

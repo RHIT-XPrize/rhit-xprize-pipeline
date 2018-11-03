@@ -18,15 +18,14 @@ public class Controller {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-		File colorsAnnotatorDescriptor
-			= new File("src/edu_rosehulman_aixprize/pipeline/desc/ColorsAnnotatorDescriptor.xml");
+		File colorsAnnotatorDescriptor = new File(
+				"desc/ColorsAnnotatorDescriptor.xml");
 		if (!colorsAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
 			XMLInputSource xmlInput = new XMLInputSource(colorsAnnotatorDescriptor);
-			ResourceSpecifier specifier
-				= UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
+			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
