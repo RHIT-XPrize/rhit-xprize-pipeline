@@ -35,6 +35,7 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
 									   .setScheme("http")
 									   .setPort(configurationLoader.getPort(this.getClass()))
+									   .setPath(configurationLoader.getPath(this.getClass()))
 									   .build();
 			this.client = HttpClientBuilder.create().build();
 		} catch (URISyntaxException | NoConfigurationFound e) {
@@ -47,6 +48,8 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		if (this.uri == null) {
 			return;
 		}
+		
+		System.out.println(uri.toString());
 
 		try {
 			RequestCreator requestCreator = new RequestCreator(uri, cas);

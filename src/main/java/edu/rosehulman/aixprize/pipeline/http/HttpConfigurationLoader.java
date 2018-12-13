@@ -30,10 +30,12 @@ public class HttpConfigurationLoader {
 
 	private Map<Class<?>, String> addressMap;
 	private Map<Class<?>, Integer> portMap;
+	private Map<Class<?>, String> pathMap;
 
 	private HttpConfigurationLoader() {
 		addressMap = new HashMap<>();
 		portMap = new HashMap<>();
+		pathMap = new HashMap<>();
 
 		fillMaps(loadFileJSON());
 	}
@@ -59,6 +61,7 @@ public class HttpConfigurationLoader {
 
 				addressMap.put(keyClass, annotatorObj.getString("address"));
 				portMap.put(keyClass, annotatorObj.getInt("port"));
+				pathMap.put(keyClass, annotatorObj.getString("path"));
 			} catch (ClassNotFoundException | JSONException e) {
 				e.printStackTrace();
 			}
@@ -79,4 +82,11 @@ public class HttpConfigurationLoader {
 
 		return portMap.get(annotator);
 	}
+	
+	public String getPath(Class<? extends HttpAnnotator> annotator)
+			throws NoConfigurationFound {
+			if (!pathMap.containsKey(annotator))
+				throw new NoConfigurationFound(annotator);
+			return pathMap.get(annotator);
+		}
 }

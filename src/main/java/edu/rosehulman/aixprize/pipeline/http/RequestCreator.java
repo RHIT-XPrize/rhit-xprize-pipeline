@@ -28,6 +28,7 @@ class RequestCreator {
 		multipartBuilder = MultipartEntityBuilder.create();
 
 		RequestBuilder requestBuilder = RequestBuilder.post(uri);
+		
 		requestBuilder.setEntity(createEntity());
 		return requestBuilder.build();
 	}
@@ -50,8 +51,8 @@ class RequestCreator {
 	private Map<String, byte[]> readBinaries(JCas cas) {
 		Map<String, byte[]> binaries = new HashMap<>();
 
-		addCurrentSofa(cas, binaries);
-		addViewSofas(cas, binaries);
+		//addCurrentSofa(cas, binaries);
+		//addViewSofas(cas, binaries);
 
 		return binaries;
 	}

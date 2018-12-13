@@ -18,13 +18,18 @@ public class Controller {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-		File colorsAnnotatorDescriptor = new File(
-				"desc/ColorsAnnotatorDescriptor.xml");
-		if (!colorsAnnotatorDescriptor.exists()) {
-			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
+//		File colorsAnnotatorDescriptor = new File(
+//				"desc/ColorsAnnotatorDescriptor.xml");
+//		if (!colorsAnnotatorDescriptor.exists()) {
+//			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
+//		}
+		File pointingAnnotatorDescriptor = new File(
+				"desc/PointingDataAnnotatorDescriptor.xml");
+		if (!pointingAnnotatorDescriptor.exists()) {
+			log.fatal("Couldn't find descriptor at " + pointingAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
-			XMLInputSource xmlInput = new XMLInputSource(colorsAnnotatorDescriptor);
+			XMLInputSource xmlInput = new XMLInputSource(pointingAnnotatorDescriptor);
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
@@ -40,6 +45,7 @@ public class Controller {
 		} catch (InvalidXMLException e) {
 			log.fatal("Invalid XML.");
 		} catch (ResourceInitializationException e) {
+			e.printStackTrace();
 			log.fatal("Failed to initialize the analysis engine.");
 		} catch (AnalysisEngineProcessException e) {
 			log.fatal("Failed to process the analysis.");
