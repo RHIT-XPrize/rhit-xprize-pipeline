@@ -1,6 +1,12 @@
 {
     "edu.rosehulman.aixprize.pipeline.annotators.ColorsAnnotator": {
         "address": "127.0.0.1",
-        "port": 8080
+        "port": 8080,
+        "path": "/"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator": {
+        "address": "127.0.0.1",
+        "port": 56814,
+        "path": "/api/values"
     }
 }
