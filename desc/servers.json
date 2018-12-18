@@ -5,8 +5,13 @@
         "path": "/"
     },
     "edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator": {
-        "address": "127.0.0.1",
+        "address": "localhost",
         "port": 56814,
         "path": "/api/values"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.BlockDetectionAnnotator": {
+        "address": "localhost",
+        "port": 56814,
+        "path": "/api/ObjectDetection"
     }
 }
