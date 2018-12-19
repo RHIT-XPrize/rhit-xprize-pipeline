@@ -29,10 +29,9 @@ class ColorAnnotator(Annotator):
         self.color_words = ['red', 'blue', 'yellow']
         self.annotation_types.append(Color.name())
 
-    def process(self, cas, files):
-        strs = '\n'.join(map(lambda x: x[0]['body'].decode(), files.values()))
+    def process(self, cas):
         sofa_string = cas['_referenced_fss']['1']['sofaString']
-        to_analyze = sofa_string + strs
+        to_analyze = sofa_string
         for word in self.color_words:
             anns = find_in_str(word, to_analyze)
             for a in anns:
