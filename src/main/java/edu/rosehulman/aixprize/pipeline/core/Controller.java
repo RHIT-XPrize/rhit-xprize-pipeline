@@ -24,7 +24,7 @@ public class Controller {
 //			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
 //		}
 		File pointingAnnotatorDescriptor = new File(
-				"desc/PointingDataAnnotatorDescriptor.xml");
+				"desc/BlockDetectionAnnotatorDescriptor.xml");
 		if (!pointingAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + pointingAnnotatorDescriptor.getAbsolutePath());
 		}
