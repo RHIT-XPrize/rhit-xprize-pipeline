@@ -12,12 +12,22 @@
     <typeSystemDescription>
       <types>
         <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.Pointing</name>
+          <name>edu.rosehulman.aixprize.pipeline.types.DetectedBlock</name>
           <description/>
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
-              <name>confidence</name>
+              <name>center_X</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>center_Y</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>depth</name>
               <description/>
               <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
