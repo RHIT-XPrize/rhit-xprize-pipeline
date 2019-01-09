@@ -11,7 +11,7 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 public class DetectedBlock_Type extends Annotation_Type {
 
 	@SuppressWarnings("hiding")
-	public final static int typeIndexID = Color.typeIndexID;
+	public final static int typeIndexID = DetectedBlock.typeIndexID;
 
 	@SuppressWarnings("hiding")
 	public final static boolean featOkTst = JCasRegistry

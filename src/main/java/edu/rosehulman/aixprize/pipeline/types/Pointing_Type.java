@@ -16,7 +16,7 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
 public class Pointing_Type extends Annotation_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = Color.typeIndexID;
+  public final static int typeIndexID = Pointing.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
