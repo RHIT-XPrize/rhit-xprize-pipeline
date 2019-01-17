@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator</annotatorImplementationName>
+  <primitive>false</primitive>  
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
+      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="PointingDataAnnotatorDescriptor">
+      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/PointingDataAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
-    <name>PointingDataAnnotatorDescriptor</name>
+    <name>CompoundAnnotator</name>
     <description/>
     <version>1.0</version>
     <vendor/>
     <configurationParameters/>
     <configurationParameterSettings/>
-    <typeSystemDescription>
-      <types>
-        <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.Pointing</name>
-          <description/>
-          <supertypeName>uima.tcas.Annotation</supertypeName>
-          <features>
-            <featureDescription>
-              <name>confidence</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-          </features>
-        </typeDescription>
-      </types>
-    </typeSystemDescription>
-    <typePriorities/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>BlockDetectionAnnotatorDescriptor</node>
+        <node>PointingDataAnnotatorDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
     <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs/>
         <outputs>
           <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Pointing</type>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.DetectedBlock</type>
         </outputs>
         <languagesSupported/>
       </capability>

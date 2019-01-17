@@ -40,7 +40,9 @@
     <capabilities>
       <capability>
         <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.DetectedBlock</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>
