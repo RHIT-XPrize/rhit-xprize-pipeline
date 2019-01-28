@@ -4,9 +4,11 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.*;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -14,6 +16,7 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.cas.*;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.json.*;
 
@@ -49,12 +52,18 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		}
 
 		try {
-			RequestCreator requestCreator = new RequestCreator(uri, cas);
-			HttpUriRequest req = requestCreator.createRequest();
-			receiveAnnotations(cas, this.client.execute(req));
+			RequestBuilder requestBuilder = RequestBuilder.post(uri);
+			requestBuilder.setEntity(encodeCas(cas));
+			receiveAnnotations(cas, this.client.execute(requestBuilder.build()));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private HttpEntity encodeCas(JCas cas) throws IOException {
+		StringWriter serialized = new StringWriter();
+		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
+		return new StringEntity(serialized.toString());
 	}
 
 	private void receiveAnnotations(JCas cas, HttpResponse resp) throws IOException {
