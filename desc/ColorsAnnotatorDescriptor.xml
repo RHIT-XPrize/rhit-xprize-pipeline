@@ -23,14 +23,30 @@
             </featureDescription>
           </features>
         </typeDescription>
+      <typeDescription>
+          <name>edu.rosehulman.aixprize.pipeline.types.SpokenText</name>
+          <description/>
+          <supertypeName>uima.tcas.Annotation</supertypeName>
+          <features>
+            <featureDescription>
+              <name>text</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
+          </features>
+        </typeDescription>
       </types>
     </typeSystemDescription>
     <typePriorities/>
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
-        <outputs/>
+        <inputs>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.SpokenText</type>
+        </inputs>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Color</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

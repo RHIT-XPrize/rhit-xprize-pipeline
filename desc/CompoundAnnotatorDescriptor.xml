@@ -9,6 +9,14 @@
     <delegateAnalysisEngine key="PointingDataAnnotatorDescriptor">
       <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/PointingDataAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="ColorsAnnotatorDescriptor">
+      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/ColorsAnnotatorDescriptor.xml"/>
+    
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="SpeechToTextAnnotatorDescriptor">
+      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/SpeechToTextAnnotatorDescriptor.xml"/>
+    
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>CompoundAnnotator</name>
@@ -19,8 +27,10 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
+        <node>SpeechToTextAnnotatorDescriptor</node>
         <node>BlockDetectionAnnotatorDescriptor</node>
-        <node>PointingDataAnnotatorDescriptor</node>
+      <node>PointingDataAnnotatorDescriptor</node>
+        <node>ColorsAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -29,7 +39,6 @@
         <inputs/>
         <outputs>
           <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Pointing</type>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.DetectedBlock</type>
         </outputs>
         <languagesSupported/>
       </capability>

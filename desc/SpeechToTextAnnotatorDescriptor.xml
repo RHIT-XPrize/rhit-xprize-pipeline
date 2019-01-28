@@ -12,34 +12,12 @@
     <typeSystemDescription>
       <types>
         <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.Pointing</name>
+          <name>edu.rosehulman.aixprize.pipeline.types.SpokenText</name>
           <description/>
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
-              <name>confidence</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-          </features>
-        </typeDescription>
-      <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.DetectedBlock</name>
-          <description/>
-          <supertypeName>uima.tcas.Annotation</supertypeName>
-          <features>
-            <featureDescription>
-              <name>center_X</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>center_Y</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>depth</name>
+              <name>text</name>
               <description/>
               <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
@@ -52,10 +30,9 @@
     <capabilities>
       <capability>
         <inputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.DetectedBlock</type>
-        </inputs>
+          </inputs>
         <outputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Pointing</type>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.SpokenText</type>
         </outputs>
         <languagesSupported/>
       </capability>

@@ -18,18 +18,13 @@ public class Controller {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-//		File colorsAnnotatorDescriptor = new File(
-//				"desc/ColorsAnnotatorDescriptor.xml");
-//		if (!colorsAnnotatorDescriptor.exists()) {
-//			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
-//		}
-		File pointingAnnotatorDescriptor = new File(
-				"desc/BlockDetectionAnnotatorDescriptor.xml");
-		if (!pointingAnnotatorDescriptor.exists()) {
-			log.fatal("Couldn't find descriptor at " + pointingAnnotatorDescriptor.getAbsolutePath());
+		File compoundAnnotatorDescriptor = new File(
+				"desc/CompoundAnnotatorDescriptor.xml");
+		if (!compoundAnnotatorDescriptor.exists()) {
+			log.fatal("Couldn't find descriptor at " + compoundAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
-			XMLInputSource xmlInput = new XMLInputSource(pointingAnnotatorDescriptor);
+			XMLInputSource xmlInput = new XMLInputSource(compoundAnnotatorDescriptor);
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
