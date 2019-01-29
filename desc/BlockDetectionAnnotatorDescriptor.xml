@@ -17,25 +17,45 @@
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
+              <name>id</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
               <name>center_X</name>
               <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
               <name>center_Y</name>
               <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
               <name>depth</name>
               <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+            	<name>r_hue</name>
+            	<description></description>
+            	<rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>g_hue</name>
+              <description></description>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>b_hue</name>
+              <description></description>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
           </features>
         </typeDescription>
       </types>
     </typeSystemDescription>
-    <typePriorities/>
+    <typePriorities></typePriorities>
     <fsIndexCollection/>
     <capabilities>
       <capability>

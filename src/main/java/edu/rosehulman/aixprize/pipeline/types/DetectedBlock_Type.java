@@ -28,55 +28,99 @@ public class DetectedBlock_Type extends Annotation_Type {
 	
 	final Feature casFeat_depth;
 	final int casFeatCode_depth;
+	
+	final Feature casFeat_r_hue;
+	final int casFeatCode_r_hue;
+	
+	final Feature casFeat_g_hue;
+	final int casFeatCode_g_hue;
+	
+	final Feature casFeat_b_hue;
+	final int casFeatCode_b_hue;
 
-	public int getId(int addr) {
+	public double getId(int addr) {
 		if (featOkTst && casFeat_id == null)
 			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_id);
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_id);
 	}
 
-	public void setId(int addr, int v) {
+	public void setId(int addr, double v) {
 		if (featOkTst && casFeat_id == null)
 			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_id, v);
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_id, v);
 	}
 	
-	public int getCenter_X(int addr) {
+	public double getCenter_X(int addr) {
 		if (featOkTst && casFeat_center_X == null)
 			jcas.throwFeatMissing("center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_center_X);
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_center_X);
 	}
 
-	public void setCenter_X(int addr, int v) {
+	public void setCenter_X(int addr, double v) {
 		if (featOkTst && casFeat_center_X == null)
 			jcas.throwFeatMissing("center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_center_X, v);
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_center_X, v);
 	}
 	
-	public int getCenter_Y(int addr) {
+	public double getCenter_Y(int addr) {
 		if (featOkTst && casFeat_center_Y == null)
 			jcas.throwFeatMissing("center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_center_Y);
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_center_Y);
 	}
 
-	public void setCenter_Y(int addr, int v) {
+	public void setCenter_Y(int addr, double v) {
 		if (featOkTst && casFeat_center_Y == null)
 			jcas.throwFeatMissing("center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_center_Y, v);
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_center_Y, v);
 	}
 	
-	public int getDepth(int addr) {
+	public double getDepth(int addr) {
 		if (featOkTst && casFeat_depth == null)
 			jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_depth);
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_depth);
 	}
 
-	public void setDepth(int addr, int v) {
+	public void setDepth(int addr, double v) {
 		if (featOkTst && casFeat_depth == null)
 			jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_depth, v);
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_depth, v);
+	}
+	
+	public double getR_Hue(int addr) {
+		if (featOkTst && casFeat_r_hue == null)
+			jcas.throwFeatMissing("r_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_r_hue);
 	}
 
+	public void setR_Hue(int addr, double v) {
+		if (featOkTst && casFeat_r_hue == null)
+			jcas.throwFeatMissing("r_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_r_hue, v);
+	}
+	
+	public double getG_Hue(int addr) {
+		if (featOkTst && casFeat_g_hue == null)
+			jcas.throwFeatMissing("g_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_g_hue);
+	}
+
+	public void setG_Hue(int addr, double v) {
+		if (featOkTst && casFeat_g_hue == null)
+			jcas.throwFeatMissing("g_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_g_hue, v);
+	}
+	
+	public double getB_Hue(int addr) {
+		if (featOkTst && casFeat_b_hue == null)
+			jcas.throwFeatMissing("b_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_b_hue);
+	}
+
+	public void setB_Hue(int addr, double v) {
+		if (featOkTst && casFeat_b_hue == null)
+			jcas.throwFeatMissing("b_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_b_hue, v);
+	}
 
 	/**
 	 * initialize variables to correspond with Cas Type and Features
@@ -91,20 +135,32 @@ public class DetectedBlock_Type extends Annotation_Type {
 		super(jcas, casType);
 		casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
-		casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.int", featOkTst);
+		casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.Double", featOkTst);
 		casFeatCode_id = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_id).getCode();
 		
-		casFeat_center_X = jcas.getRequiredFeatureDE(casType, "center_X", "uima.cas.int", featOkTst);
+		casFeat_center_X = jcas.getRequiredFeatureDE(casType, "center_X", "uima.cas.Double", featOkTst);
 		casFeatCode_center_X = (null == casFeat_center_X) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_center_X).getCode();
 		
-		casFeat_center_Y = jcas.getRequiredFeatureDE(casType, "center_Y", "uima.cas.int", featOkTst);
+		casFeat_center_Y = jcas.getRequiredFeatureDE(casType, "center_Y", "uima.cas.Double", featOkTst);
 		casFeatCode_center_Y = (null == casFeat_center_Y) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_center_Y).getCode();
 		
-		casFeat_depth = jcas.getRequiredFeatureDE(casType, "depth", "uima.cas.int", featOkTst);
+		casFeat_depth = jcas.getRequiredFeatureDE(casType, "depth", "uima.cas.Double", featOkTst);
 		casFeatCode_depth = (null == casFeat_depth) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_depth).getCode();
+		
+		casFeat_r_hue = jcas.getRequiredFeatureDE(casType, "r_hue", "uima.cas.Double", featOkTst);
+		casFeatCode_r_hue = (null == casFeat_r_hue) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_r_hue).getCode();
+		
+		casFeat_g_hue = jcas.getRequiredFeatureDE(casType, "g_hue", "uima.cas.Double", featOkTst);
+		casFeatCode_g_hue = (null == casFeat_g_hue) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_g_hue).getCode();
+		
+		casFeat_b_hue = jcas.getRequiredFeatureDE(casType, "b_hue", "uima.cas.Double", featOkTst);
+		casFeatCode_b_hue = (null == casFeat_b_hue) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_b_hue).getCode();
 	}
 }
