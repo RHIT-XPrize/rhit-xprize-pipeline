@@ -4,12 +4,16 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.*;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -27,7 +31,7 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		private static final long serialVersionUID = 7484866497315133495L;
 	}
 
-	private URI uri;
+	private String uri;
 	private CloseableHttpClient client;
 
 	@Override
@@ -35,12 +39,14 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
 
 		try {
-			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
-									   .setScheme("http")
-									   .setPort(configurationLoader.getPort(this.getClass()))
-									   .build();
+			//this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
+//									   .setScheme("http")
+//									   .setPort(configurationLoader.getPort(this.getClass()))
+//									   .setPath(configurationLoader.getPath(this.getClass()))
+//									   .build();
+			this.uri = "http://localhost" + ":" + configurationLoader.getPort(this.getClass())  + configurationLoader.getPath(this.getClass());
 			this.client = HttpClientBuilder.create().build();
-		} catch (URISyntaxException | NoConfigurationFound e) {
+		} catch (NoConfigurationFound e) {
 			e.printStackTrace();
 		}
 	}
@@ -50,6 +56,8 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		if (this.uri == null) {
 			return;
 		}
+
+		System.out.println(uri.toString());
 
 		try {
 			RequestBuilder requestBuilder = RequestBuilder.post(uri);
