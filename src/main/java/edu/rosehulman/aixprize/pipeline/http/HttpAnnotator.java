@@ -9,6 +9,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.*;
 import org.apache.http.params.BasicHttpParams;
@@ -45,8 +46,9 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 //									   .setPath(configurationLoader.getPath(this.getClass()))
 //									   .build();
 			this.uri = "http://localhost" + ":" + configurationLoader.getPort(this.getClass())  + configurationLoader.getPath(this.getClass());
+//			this.uri = "https://requestbin.fullcontact.com/1f8s9dn1";
 			this.client = HttpClientBuilder.create().build();
-		} catch (NoConfigurationFound e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -71,7 +73,7 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 	private HttpEntity encodeCas(JCas cas) throws IOException {
 		StringWriter serialized = new StringWriter();
 		JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
-		return new StringEntity(serialized.toString());
+		return new StringEntity(serialized.toString(), ContentType.APPLICATION_JSON);
 	}
 
 	private void receiveAnnotations(JCas cas, HttpResponse resp) throws IOException {
