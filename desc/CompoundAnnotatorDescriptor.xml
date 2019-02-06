@@ -4,18 +4,16 @@
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
-      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="PointingDataAnnotatorDescriptor">
-      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/PointingDataAnnotatorDescriptor.xml"/>
+      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\BlockDetectionAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   <delegateAnalysisEngine key="ColorsAnnotatorDescriptor">
-      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/ColorsAnnotatorDescriptor.xml"/>
-    
+      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\ColorsAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="SpeechToTextAnnotatorDescriptor">
-      <import location="/home/panfilwk/Documents/SrProject/Pipeline/desc/SpeechToTextAnnotatorDescriptor.xml"/>
-    
+      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\SpeechToTextAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="OutputAnnotatorDescriptor">
+      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\OutputAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -29,8 +27,8 @@
       <fixedFlow>
         <node>SpeechToTextAnnotatorDescriptor</node>
         <node>BlockDetectionAnnotatorDescriptor</node>
-      <node>PointingDataAnnotatorDescriptor</node>
         <node>ColorsAnnotatorDescriptor</node>
+        <node>OutputAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -38,7 +36,7 @@
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Pointing</type>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Feedback</type>
         </outputs>
         <languagesSupported/>
       </capability>
