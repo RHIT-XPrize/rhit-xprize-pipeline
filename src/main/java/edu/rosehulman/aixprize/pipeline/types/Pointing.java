@@ -116,6 +116,18 @@ public class Pointing extends Annotation {
 			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.Pointing");
 		return jcasType.ll_cas.ll_getDoubleValue(addr, ((Pointing_Type) jcasType).casFeatCode_confidence);
 	}
+	
+	/**
+	 * getter for confidence - gets
+	 * 
+	 * @generated
+	 * @return value of the feature
+	 */
+	public double getId() {
+		if (Pointing_Type.featOkTst && ((Pointing_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.Pointing");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((Pointing_Type) jcasType).casFeatCode_id);
+	}
 
 	/**
 	 * setter for confidence - sets
@@ -129,5 +141,17 @@ public class Pointing extends Annotation {
 			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.Pointing");
 		jcasType.ll_cas.ll_setDoubleValue(addr, ((Pointing_Type) jcasType).casFeatCode_confidence, v);
 	}
-
+	
+	/**
+	 * setter for confidence - sets
+	 * 
+	 * @generated
+	 * @param v
+	 *            value to set into the feature
+	 */
+	public void setId(double v) {
+		if (Pointing_Type.featOkTst && ((Pointing_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.Pointing");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((Pointing_Type) jcasType).casFeatCode_id, v);
+	}
 }

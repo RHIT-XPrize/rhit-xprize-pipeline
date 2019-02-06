@@ -9,6 +9,7 @@ import org.apache.uima.analysis_engine.*;
 import org.apache.uima.cas.text.AnnotationIndex;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.tcas.Annotation;
+import org.apache.uima.json.JsonCasSerializer;
 import org.apache.uima.resource.*;
 import org.apache.uima.util.*;
 
@@ -24,7 +25,7 @@ public class Controller {
 //			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
 //		}
 		File pointingAnnotatorDescriptor = new File(
-				"desc/PointingDataAnnotatorDescriptor.xml");
+				"desc/OutputAnnotator.xml");
 		if (!pointingAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + pointingAnnotatorDescriptor.getAbsolutePath());
 		}
@@ -39,6 +40,9 @@ public class Controller {
 			analysisEngine.process(cas);
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
+
+			StringWriter serialized = new StringWriter();
+			JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
 			cas.reset();
 		} catch (IOException e) {
 			log.fatal("Failed to load descriptor.");
