@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.RequestBuilder;
@@ -58,6 +59,8 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 			return;
 		}
 		
+		System.out.println(uri.toString());
+
 		System.out.println(uri.toString());
 
 		try {

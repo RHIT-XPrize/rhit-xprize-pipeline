@@ -17,31 +17,14 @@
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
+              <name>id</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
               <name>confidence</name>
               <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-          </features>
-        </typeDescription>
-      <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.DetectedBlock</name>
-          <description/>
-          <supertypeName>uima.tcas.Annotation</supertypeName>
-          <features>
-            <featureDescription>
-              <name>center_X</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>center_Y</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>depth</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
           </features>
         </typeDescription>
@@ -51,12 +34,8 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.DetectedBlock</type>
-        </inputs>
-        <outputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Pointing</type>
-        </outputs>
+        <inputs/>
+        <outputs/>
         <languagesSupported/>
       </capability>
     </capabilities>

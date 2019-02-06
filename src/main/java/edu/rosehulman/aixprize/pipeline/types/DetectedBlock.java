@@ -91,39 +91,87 @@ public class DetectedBlock extends Annotation {
 	// *--------------*
 	// * Feature: confidence
 
-	public String getCenter_X(int addr) {
+	public int getId(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_id);
+	}
+
+	public void setId(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_id, v);
+	}
+	
+	public int getCenter_X(int addr) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_center_X == null)
 			jcasType.jcas.throwFeatMissing("center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_X);
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_X);
 	}
 
-	public void setCenter_X(int addr, String v) {
+	public void setCenter_X(int addr, int v) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_center_X == null)
 			jcasType.jcas.throwFeatMissing("center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		jcasType.ll_cas.ll_setStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_X, v);
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_X, v);
 	}
-
-	public String getCenter_Y(int addr) {
+	
+	public int getCenter_Y(int addr) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_center_Y == null)
 			jcasType.jcas.throwFeatMissing("center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_Y);
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_Y);
 	}
 
-	public void setCenter_Y(int addr, String v) {
+	public void setCenter_Y(int addr, int v) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_center_Y == null)
 			jcasType.jcas.throwFeatMissing("center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		jcasType.ll_cas.ll_setStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_Y, v);
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_Y, v);
 	}
-
-	public String getDepth(int addr) {
+	
+	public int getDepth(int addr) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_depth == null)
 			jcasType.jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth);
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth);
 	}
 
-	public void setDepth(int addr, String v) {
+	public void setDepth(int addr, int v) {
 		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_depth == null)
 			jcasType.jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		jcasType.ll_cas.ll_setStringValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth, v);
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth, v);
+	}
+	
+	public int getR_Hue(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_r_hue == null)
+			jcasType.jcas.throwFeatMissing("r_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_r_hue);
+	}
+
+	public void setR_Hue(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_r_hue == null)
+			jcasType.jcas.throwFeatMissing("r_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_r_hue, v);
+	}
+	
+	public int getG_Hue(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_g_hue == null)
+			jcasType.jcas.throwFeatMissing("g_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_g_hue);
+	}
+
+	public void setG_Hue(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_g_hue == null)
+			jcasType.jcas.throwFeatMissing("g_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_g_hue, v);
+	}
+	
+	public int getB_Hue(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_b_hue == null)
+			jcasType.jcas.throwFeatMissing("b_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_b_hue);
+	}
+
+	public void setB_Hue(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_b_hue == null)
+			jcasType.jcas.throwFeatMissing("b_hue", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_b_hue, v);
 	}
 }
