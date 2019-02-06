@@ -4,16 +4,19 @@
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
-      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\BlockDetectionAnnotatorDescriptor.xml"/>
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
-  <delegateAnalysisEngine key="ColorsAnnotatorDescriptor">
-      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\ColorsAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="PointingDataAnnotatorDescriptor">
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/PointingDataAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ColorsAnnotatorDescriptor">
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/ColorsAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="SpeechToTextAnnotatorDescriptor">
-      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\SpeechToTextAnnotatorDescriptor.xml"/>
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/SpeechToTextAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="OutputAnnotatorDescriptor">
-      <import location="C:\\Users\\duessel\\Documents\\Class\\Senior Project\\rhit-xprize-pipeline\\desc\\OutputAnnotatorDescriptor.xml"/>
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/OutputAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -25,9 +28,8 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>SpeechToTextAnnotatorDescriptor</node>
         <node>BlockDetectionAnnotatorDescriptor</node>
-        <node>ColorsAnnotatorDescriptor</node>
+        <node>PointingDataAnnotatorDescriptor</node>
         <node>OutputAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>

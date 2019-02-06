@@ -15,7 +15,7 @@ import org.apache.uima.util.*;
 
 public class Controller {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
@@ -28,6 +28,7 @@ public class Controller {
 			XMLInputSource xmlInput = new XMLInputSource(compoundAnnotatorDescriptor);
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
+			Thread.sleep(10000);
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
 
@@ -36,8 +37,6 @@ public class Controller {
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
 
-			StringWriter serialized = new StringWriter();
-			JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
 			cas.reset();
 		} catch (IOException e) {
 			log.fatal("Failed to load descriptor.");
