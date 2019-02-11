@@ -1,9 +1,4 @@
 {
-    "edu.rosehulman.aixprize.pipeline.annotators.ColorsAnnotator": {
-        "address": "localhost",
-        "port": 3000,
-        "path": "/"
-    },
     "edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator": {
         "address": "localhost",
         "port": 56814,
@@ -23,5 +18,10 @@
         "address": "localhost",
         "port": 3000,
         "path": "/Speech"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.TextConfidenceAnnotator": {
+        "address": "localhost",
+        "port": 3000,
+        "path": "/TextProcessing"
     }
 }
