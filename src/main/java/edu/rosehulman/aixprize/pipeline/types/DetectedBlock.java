@@ -127,16 +127,40 @@ public class DetectedBlock extends Annotation {
 		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_center_Y, v);
 	}
 	
-	public int getDepth(int addr) {
-		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_depth == null)
-			jcasType.jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth);
+	public int getCamera_Space_Center_X(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_center_X == null)
+			jcasType.jcas.throwFeatMissing("camera_space_center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_center_X);
 	}
 
-	public void setDepth(int addr, int v) {
-		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_depth == null)
+	public void setCamera_Space_Center_X(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_center_X == null)
+			jcasType.jcas.throwFeatMissing("camera_space_center_X", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_center_X, v);
+	}
+	
+	public int getCamera_Space_Center_Y(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_center_Y == null)
+			jcasType.jcas.throwFeatMissing("camera_space_center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_center_Y);
+	}
+
+	public void setCamera_Space_Center_Y(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_center_Y == null)
+			jcasType.jcas.throwFeatMissing("casFeat_camera_space_center_Y", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_center_Y, v);
+	}
+	
+	public int getCamera_Space_Depth(int addr) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_depth == null)
+			jcasType.jcas.throwFeatMissing("camera_space_depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_depth);
+	}
+
+	public void setCamera_Space_Depth(int addr, int v) {
+		if (DetectedBlock_Type.featOkTst && ((DetectedBlock_Type) jcasType).casFeat_camera_space_depth == null)
 			jcasType.jcas.throwFeatMissing("depth", "edu.rosehulman.aixprize.pipeline.types.DetectedBlock");
-		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_depth, v);
+		jcasType.ll_cas.ll_setIntValue(addr, ((DetectedBlock_Type) jcasType).casFeatCode_camera_space_depth, v);
 	}
 	
 	public int getR_Hue(int addr) {

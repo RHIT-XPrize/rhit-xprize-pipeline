@@ -28,7 +28,6 @@ public class Controller {
 			XMLInputSource xmlInput = new XMLInputSource(compoundAnnotatorDescriptor);
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
-			Thread.sleep(10000);
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
 			JCas cas = analysisEngine.newJCas();
 
