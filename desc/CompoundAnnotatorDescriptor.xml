@@ -15,6 +15,9 @@
     <delegateAnalysisEngine key="TextConfidenceAnnotatorDescriptor">
       <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/TextConfidenceAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AggregateConfidenceAnnotatorDescriptor">
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/AggregateConfidenceAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="OutputAnnotatorDescriptor">
       <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/OutputAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
@@ -30,7 +33,10 @@
       <fixedFlow>
         <node>SpeechToTextAnnotatorDescriptor</node>
         <node>BlockDetectionAnnotatorDescriptor</node>
+        <node>PointingDataAnnotatorDescriptor</node>
         <node>TextConfidenceAnnotatorDescriptor</node>
+        <node>AggregateConfidenceAnnotatorDescriptor</node>
+        <node>OutputAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -38,7 +44,7 @@
       <capability>
         <inputs/>
         <outputs>
-          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.TextConfidence</type>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.Feedback</type>
         </outputs>
         <languagesSupported/>
       </capability>

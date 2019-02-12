@@ -23,5 +23,10 @@
         "address": "localhost",
         "port": 3000,
         "path": "/TextProcessing"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.AggregateConfidenceAnnotator": {
+        "address": "localhost",
+        "port": 3000,
+        "path": "/AggregateConfidence"
     }
 }
