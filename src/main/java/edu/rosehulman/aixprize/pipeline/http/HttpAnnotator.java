@@ -58,6 +58,8 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		if (this.uri == null) {
 			return;
 		}
+		
+		System.out.println(uri.toString());
 
 		System.out.println(uri.toString());
 

@@ -15,22 +15,17 @@ import org.apache.uima.util.*;
 
 public class Controller {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-//		File colorsAnnotatorDescriptor = new File(
-//				"desc/ColorsAnnotatorDescriptor.xml");
-//		if (!colorsAnnotatorDescriptor.exists()) {
-//			log.fatal("Couldn't find descriptor at " + colorsAnnotatorDescriptor.getAbsolutePath());
-//		}
-		File pointingAnnotatorDescriptor = new File(
-				"desc/OutputAnnotator.xml");
-		if (!pointingAnnotatorDescriptor.exists()) {
-			log.fatal("Couldn't find descriptor at " + pointingAnnotatorDescriptor.getAbsolutePath());
+		File compoundAnnotatorDescriptor = new File(
+				"desc/CompoundAnnotatorDescriptor.xml");
+		if (!compoundAnnotatorDescriptor.exists()) {
+			log.fatal("Couldn't find descriptor at " + compoundAnnotatorDescriptor.getAbsolutePath());
 		}
 		try {
-			XMLInputSource xmlInput = new XMLInputSource(pointingAnnotatorDescriptor);
+			XMLInputSource xmlInput = new XMLInputSource(compoundAnnotatorDescriptor);
 			ResourceSpecifier specifier = UIMAFramework.getXMLParser().parseResourceSpecifier(xmlInput);
 
 			AnalysisEngine analysisEngine = UIMAFramework.produceAnalysisEngine(specifier);
@@ -41,8 +36,6 @@ public class Controller {
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
 
-			StringWriter serialized = new StringWriter();
-			JsonCasSerializer.jsonSerialize(cas.getCas(), serialized);
 			cas.reset();
 		} catch (IOException e) {
 			log.fatal("Failed to load descriptor.");

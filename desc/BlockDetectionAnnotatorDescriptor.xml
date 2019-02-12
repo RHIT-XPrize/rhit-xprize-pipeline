@@ -32,7 +32,17 @@
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>depth</name>
+              <name>camera_space_center_X</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>camera_space_center_Y</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>camera_space_depth</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
@@ -61,6 +71,7 @@
       <capability>
         <inputs/>
         <outputs/>
+>>>>>>> master
         <languagesSupported/>
       </capability>
     </capabilities>

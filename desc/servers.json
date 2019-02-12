@@ -1,7 +1,7 @@
 {
     "edu.rosehulman.aixprize.pipeline.annotators.ColorsAnnotator": {
-        "address": "127.0.0.1",
-        "port": 8080,
+        "address": "localhost",
+        "port": 3000,
         "path": "/"
     },
     "edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator": {
@@ -18,5 +18,10 @@
         "address": "localhost",
         "port": 56814,
         "path": "/api/Output"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.SpeechToTextAnnotator": {
+        "address": "localhost",
+        "port": 3000,
+        "path": "/Speech"
     }
 }
