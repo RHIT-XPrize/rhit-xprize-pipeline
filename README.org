@@ -1,59 +1,32 @@
 * Rose-Hulman AI XPrize Data Pipeline
 [[https://travis-ci.org/RHIT-XPrize/rhit-xprize-pipeline.svg?branch=master]]
-[[https://rhit-xprize.github.io/][Presentations]]
 ** Introduction
-IBM is holding an AI XPrize competition that our school, Rose-Hulman
-Institute of Technology, is participating in. Details on the
-competition are found here: http://ai.xprize.org, and information
-about the vision for the finished product can be found here:
-https://wordpress.rose-hulman.edu/ai-group/.
 
 This project is intended to allow for the usage of different AI
 components across different languages and possibly even machines all
 linked together using [[https://uima.apache.org][UIMA]], the Unstructured Information Management
 Architecture.
 
-The program communicates with the robot using [[http://www.ros.org][ROS]], the robotic
-operating system, and will be in charge of processing the data sent to
-it by the robot's sensors and sending abstract commands for the robot
+The program does not communicate directly with the robot, but instead will run
+on a separate machine and sent commands to the robot over a network or socket.
+A seperate program will run on [[http://www.ros.org][ROS]], the robotic
+operating system, and will be in charge of processing the data from the robot's sensors
+to return to the pipeline, and converting pipeline output into abstract commands for the robot
 to execute.
+
 ** Dependencies
 - Java 1.8
-- ROS Indigo
 - UIMA
 - Gradle
-- ROSJava
+
 ** Installation
-This repository is a ROS package, and as such should be cloned into
-your =catkin_ws/src= folder (see [[http://wiki.ros.org/catkin/Tutorials/create_a_workspace][this tutorial]] for information about
-setting up a workspace).
+UIMA development works best in Eclipse using the UIMA Eclipse Plugins.
+There is a tutorial for setting it up in sections 3.1.1 and 3.1.2 of 
+[[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/overview_and_setup/overview_and_setup.html#ugr.ovv.eclipse_setup][this document]].
+UIMA and other required libraries for the project are installed through the Gradle build,
+make sure you have the latest version of Gradle installed according to one of the sets of
+instructions [[https://gradle.org/install/][here]]
 
-#+BEGIN_SRC bash
-  cd catkin_ws/src
-  git clone https://github.com/RHIT-XPrize/rhit-xprize-pipeline edu_rosehulman_aixprize
-
-  cd ..
-  catkin_make
-
-  source catkin_ws/devel/setup.bash
-#+END_SRC
-
-Note that projects will be Gradle projects, and should be imported as
-such.
-** Usage
-#+BEGIN_SRC bash
-  roscore &
-  rosrun edu_rosehulman_aixprize pipeline edu.rosehulman.aixprize.pipeline.core.Controller
-#+END_SRC
-
-The =rosrun= will ask you to select which binary to use. Select one
-under the =bin/= folder.
-** Troubleshooting
-- ROS is unable to find the package
-  + Ensure that you cloned the repository into a folder named
-    =edu_rosehulman_aixprize=.
-  + Make sure you've run =source catkin_ws/setup.bash= during this
-    terminal session. (Better yet, add it to your =~/.bashrc=
 ** How to Write an Annotator
 Annotators are the fundamental building block of the UIMA framework,
 ([[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/tutorials_and_users_guides/tutorials_and_users_guides.html][see here for a UIMA tutorial]]). As such, adding Annotators (and
@@ -64,9 +37,6 @@ what they have to be bound to a logical Annotator in Java. We will
 define a _Core Annotator_ to be an Annotator written completely in
 Java, and an _External Annotator_ to be an Annotator written primarily
 in another language.
-*** Requirements
-You /will need/ to use Eclipse. There is a tutorial for setting it up
-[[https://uima.apache.org/downloads/releaseDocs/2.1.0-incubating/docs/html/overview_and_setup/overview_and_setup.html#ugr.ovv.eclipse_setup][here]]. Aside from that, make sure that UIMA is installed and set up.
 *** Writing a Core Annotator
 Right click on the =desc= folder and create a new "Analysis Engine
 Descriptor File." Use the appropriate Eclipse view to edit the
