@@ -26,6 +26,16 @@
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
+            <featureDescription>
+              <name>normPointingConf</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>normTextConf</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
           </features>
         </typeDescription>
       </types>

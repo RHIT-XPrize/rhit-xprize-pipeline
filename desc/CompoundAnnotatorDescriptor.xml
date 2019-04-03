@@ -21,6 +21,9 @@
     <delegateAnalysisEngine key="OutputAnnotatorDescriptor">
       <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/OutputAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="FeedbackAnnotatorDescriptor">
+      <import location="/Users/duessel/Documents/Class/Senior Project/rhit-xprize-pipeline/desc/FeedbackAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>CompoundAnnotator</name>
@@ -37,6 +40,7 @@
         <node>TextConfidenceAnnotatorDescriptor</node>
         <node>AggregateConfidenceAnnotatorDescriptor</node>
         <node>OutputAnnotatorDescriptor</node>
+        <node>FeedbackAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

@@ -28,5 +28,10 @@
         "address": "localhost",
         "port": 3000,
         "path": "/AggregateConfidence"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.FeedbackAnnotator": {
+        "address": "localhost",
+        "port": 3000,
+        "path": "/Feedback"
     }
 }

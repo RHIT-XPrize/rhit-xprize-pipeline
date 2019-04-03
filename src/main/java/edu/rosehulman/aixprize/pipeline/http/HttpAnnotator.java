@@ -40,13 +40,11 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		HttpConfigurationLoader configurationLoader = HttpConfigurationLoader.getInstance();
 
 		try {
-			//this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
-//									   .setScheme("http")
-//									   .setPort(configurationLoader.getPort(this.getClass()))
-//									   .setPath(configurationLoader.getPath(this.getClass()))
-//									   .build();
-			this.uri = "http://localhost" + ":" + configurationLoader.getPort(this.getClass())  + configurationLoader.getPath(this.getClass());
-//			this.uri = "https://requestbin.fullcontact.com/1f8s9dn1";
+			this.uri = new URIBuilder().setHost(configurationLoader.getAddress(this.getClass()))
+									   .setScheme("http")
+									   .setPort(configurationLoader.getPort(this.getClass()))
+									   .setPath(configurationLoader.getPath(this.getClass()))
+									   .build().toString();
 			this.client = HttpClientBuilder.create().build();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -60,9 +58,6 @@ public abstract class HttpAnnotator extends JCasAnnotator_ImplBase {
 		}
 		
 		System.out.println(uri.toString());
-
-		System.out.println(uri.toString());
-
 		try {
 			RequestBuilder requestBuilder = RequestBuilder.post(uri);
 			requestBuilder.setEntity(encodeCas(cas));

@@ -108,6 +108,18 @@ public class AggregateConfidence extends Annotation {
 		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_confidence);
 	}
 	
+	public double getNormPointingConfidence() {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normPointingConf == null)
+			jcasType.jcas.throwFeatMissing("normPointingConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normPointingConf);
+	}
+	
+	public double getNormTextConfidence() {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normTextConf == null)
+			jcasType.jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normTextConf);
+	}
+	
 	/**
 	 * getter for confidence - gets
 	 * 
@@ -131,6 +143,18 @@ public class AggregateConfidence extends Annotation {
 		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_confidence == null)
 			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
 		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_confidence, v);
+	}
+	
+	public void setNormPointingConf(double v) {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normPointingConf == null)
+			jcasType.jcas.throwFeatMissing("normPointingConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normPointingConf, v);
+	}
+	
+	public void setNormTextConf(double v) {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normTextConf == null)
+			jcasType.jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normTextConf, v);
 	}
 	
 	/**
