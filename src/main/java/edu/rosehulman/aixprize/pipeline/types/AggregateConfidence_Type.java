@@ -24,11 +24,21 @@ public class AggregateConfidence_Type extends Annotation_Type {
 	final Feature casFeat_id;
 	/** @generated */
 	final int casFeatCode_id;
-	
+
 	/** @generated */
 	final Feature casFeat_confidence;
 	/** @generated */
 	final int casFeatCode_confidence;
+
+	/** @generated */
+	final Feature casFeat_normPointingConf;
+	/** @generated */
+	final int casFeatCode_normPointingConf;
+
+	/** @generated */
+	final Feature casFeat_normTextConf;
+	/** @generated */
+	final int casFeatCode_normTextConf;
 
 	/**
 	 * @generated
@@ -41,7 +51,19 @@ public class AggregateConfidence_Type extends Annotation_Type {
 			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidence);
 	}
-	
+
+	public double getNormPointingConf(int addr) {
+		if (featOkTst && casFeat_normPointingConf == null)
+			jcas.throwFeatMissing("normPointingConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normPointingConf);
+	}
+
+	public double getNormTextConf(int addr) {
+		if (featOkTst && casFeat_normTextConf == null)
+			jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normTextConf);
+	}
+
 	/**
 	 * @generated
 	 * @param addr
@@ -61,12 +83,24 @@ public class AggregateConfidence_Type extends Annotation_Type {
 	 * @param v
 	 *            value to set
 	 */
-	public void setConfidece(int addr, double v) {
+	public void setConfidence(int addr, double v) {
 		if (featOkTst && casFeat_confidence == null)
 			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_confidence, v);
 	}
 	
+	public void setNormPointingConf(int addr, double v) {
+		if (featOkTst && casFeat_normPointingConf == null)
+			jcas.throwFeatMissing("normPointingConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_normPointingConf, v);
+	}
+	
+	public void setNormTextConf(int addr, double v) {
+		if (featOkTst && casFeat_normTextConf == null)
+			jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_normTextConf, v);
+	}
+
 	/**
 	 * @generated
 	 * @param addr
@@ -94,12 +128,18 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
 		casFeat_id = jcas.getRequiredFeatureDE(casType, "id", "uima.cas.Double", featOkTst);
-		casFeatCode_id = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_id).getCode();
-		
+		casFeatCode_id = (null == casFeat_id) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl) casFeat_id).getCode();
+
 		casFeat_confidence = jcas.getRequiredFeatureDE(casType, "confidence", "uima.cas.Double", featOkTst);
 		casFeatCode_confidence = (null == casFeat_confidence) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_confidence).getCode();
-
+		
+		casFeat_normPointingConf = jcas.getRequiredFeatureDE(casType, "normPointingConf", "uima.cas.Double", featOkTst);
+		casFeatCode_normPointingConf = (null == casFeat_normPointingConf) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_normPointingConf).getCode();
+		
+		casFeat_normTextConf = jcas.getRequiredFeatureDE(casType, "normTextConf", "uima.cas.Double", featOkTst);
+		casFeatCode_normTextConf = (null == casFeat_normTextConf) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_normTextConf).getCode();
 	}
 }
