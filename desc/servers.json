@@ -33,5 +33,10 @@
         "address": "localhost",
         "port": 3000,
         "path": "/Feedback"
+    },
+     "edu.rosehulman.aixprize.pipeline.annotators.SpatialRelationAnnotator": {
+        "address": "localhost",
+        "port": 3001,
+        "path": "/SpatialRelationGen"
     }
 }
