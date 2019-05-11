@@ -22,6 +22,11 @@
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
+              <name>name</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>	
+            <featureDescription>
               <name>x</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
@@ -39,28 +44,23 @@
             <featureDescription>
               <name>left</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
             <featureDescription>
               <name>right</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>behind</name>
-              <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
             <featureDescription>
               <name>front</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>	
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>
             <featureDescription>
-              <name>name</name>
+              <name>behind</name>
               <description/>
               <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>			
+            </featureDescription>		
           </features>
         </typeDescription>
       </types>

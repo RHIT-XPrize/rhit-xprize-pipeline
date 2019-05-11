@@ -4,7 +4,7 @@
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="SpatialAnnotatorDescriptor">
-      <import location="/Users/schmidmj/Desktop/Senior Project/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>

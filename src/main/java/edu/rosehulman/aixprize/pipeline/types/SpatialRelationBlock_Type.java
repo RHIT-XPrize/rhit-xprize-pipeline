@@ -59,86 +59,86 @@ public class SpatialRelationBlock_Type extends Annotation_Type{
 
 	public double getX(int addr) {
 		if (featOkTst && casFeat_x == null)
-			jcas.throwFeatMissing("X", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
+			jcas.throwFeatMissing("x", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_x);
 	}
 
 	public void setX(int addr, double v) {
 		if (featOkTst && casFeat_x == null)
-			jcas.throwFeatMissing("X", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
+			jcas.throwFeatMissing("x", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_x, v);
 	}
 
 	public double getY(int addr) {
 		if (featOkTst && casFeat_y == null)
-			jcas.throwFeatMissing("Y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
+			jcas.throwFeatMissing("y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_y);
 	}
 
 	public void setY(int addr, double v) {
 		if (featOkTst && casFeat_y == null)
-			jcas.throwFeatMissing("Y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
+			jcas.throwFeatMissing("y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_y, v);
 	}
 
-	public int getZ(int addr) {
+	public double getZ(int addr) {
 		if (featOkTst && casFeat_z == null)
 			jcas.throwFeatMissing("z", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_z);
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_z);
 	}
 
-	public void setZ(int addr, int v) {
+	public void setZ(int addr, double v) {
 		if (featOkTst && casFeat_z == null)
 			jcas.throwFeatMissing("z", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_z, v);
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_z, v);
 	}
 
-	public int getLeft(int addr) {
+	public String getLeft(int addr) {
 		if (featOkTst && casFeat_left == null)
 			jcas.throwFeatMissing("left", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_left);
+		return ll_cas.ll_getStringValue(addr, casFeatCode_left);
 	}
 
-	public void setLeft(int addr, int v) {
+	public void setLeft(int addr, String v) {
 		if (featOkTst && casFeat_left == null)
 			jcas.throwFeatMissing("left", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_left, v);
+		ll_cas.ll_setStringValue(addr, casFeatCode_left, v);
 	}
 
-	public int getRight(int addr) {
+	public String getRight(int addr) {
 		if (featOkTst && casFeat_right == null)
 			jcas.throwFeatMissing("right", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return ll_cas.ll_getIntValue(addr, casFeatCode_right);
+		return ll_cas.ll_getStringValue(addr, casFeatCode_right);
 	}
 
-	public void setRight(int addr, int v) {
+	public void setRight(int addr, String v) {
 		if (featOkTst && casFeat_right == null)
 			jcas.throwFeatMissing("right", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		ll_cas.ll_setIntValue(addr, casFeatCode_right, v);
+		ll_cas.ll_setStringValue(addr, casFeatCode_right, v);
 	}
 
-	public double getBehind(int addr) {
+	public String getBehind(int addr) {
 		if (featOkTst && casFeat_behind == null)
 			jcas.throwFeatMissing("behind", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return ll_cas.ll_getDoubleValue(addr, casFeatCode_behind);
+		return ll_cas.ll_getStringValue(addr, casFeatCode_behind);
 	}
 
-	public void setBehind(int addr, double v) {
+	public void setBehind(int addr, String v) {
 		if (featOkTst && casFeat_behind == null)
 			jcas.throwFeatMissing("behind", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		ll_cas.ll_setDoubleValue(addr, casFeatCode_behind, v);
+		ll_cas.ll_setStringValue(addr, casFeatCode_behind, v);
 	}
 
-	public double getFront(int addr) {
+	public String getFront(int addr) {
 		if (featOkTst && casFeat_front == null)
 			jcas.throwFeatMissing("front", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return ll_cas.ll_getDoubleValue(addr, casFeatCode_front);
+		return ll_cas.ll_getStringValue(addr, casFeatCode_front);
 	}
 
-	public void setFront(int addr, double v) {
+	public void setFront(int addr, String v) {
 		if (featOkTst && casFeat_front == null)
 			jcas.throwFeatMissing("front", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		ll_cas.ll_setDoubleValue(addr, casFeatCode_front, v);
+		ll_cas.ll_setStringValue(addr, casFeatCode_front, v);
 	}
 
 	public String getName(int addr) {
@@ -182,19 +182,19 @@ public class SpatialRelationBlock_Type extends Annotation_Type{
 		casFeatCode_z = (null == casFeat_z) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_z).getCode();
 		
-		casFeat_left = jcas.getRequiredFeatureDE(casType, "left", "uima.cas.Double", featOkTst);
+		casFeat_left = jcas.getRequiredFeatureDE(casType, "left", "uima.cas.String", featOkTst);
 		casFeatCode_left = (null == casFeat_left) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_left).getCode();
 		
-		casFeat_right = jcas.getRequiredFeatureDE(casType, "right", "uima.cas.Double", featOkTst);
+		casFeat_right = jcas.getRequiredFeatureDE(casType, "right", "uima.cas.String", featOkTst);
 		casFeatCode_right = (null == casFeat_right) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_right).getCode();
 		
-		casFeat_behind = jcas.getRequiredFeatureDE(casType, "behind", "uima.cas.Double", featOkTst);
+		casFeat_behind = jcas.getRequiredFeatureDE(casType, "behind", "uima.cas.String", featOkTst);
 		casFeatCode_behind = (null == casFeat_behind) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_behind).getCode();
 		
-		casFeat_front = jcas.getRequiredFeatureDE(casType, "front", "uima.cas.Double", featOkTst);
+		casFeat_front = jcas.getRequiredFeatureDE(casType, "front", "uima.cas.String", featOkTst);
 		casFeatCode_front = (null == casFeat_front) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_front).getCode();
 		
