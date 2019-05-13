@@ -38,5 +38,15 @@
 		"address": "localhost",
 		"port": 3001,
 		"path": "/NLPUnit"
+    },
+     "edu.rosehulman.aixprize.pipeline.annotators.SpatialRelationAnnotator": {
+        "address": "localhost",
+        "port": 3001,
+        "path": "/SpatialRelationGen"
+    },
+     "edu.rosehulman.aixprize.pipeline.annotators.MetadataAnnotator": {
+        "address": "localhost",
+        "port": 3001,
+        "path": "/MetadataCompiler"
 	}
 }
