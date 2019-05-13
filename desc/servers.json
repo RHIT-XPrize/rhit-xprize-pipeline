@@ -17,7 +17,7 @@
     "edu.rosehulman.aixprize.pipeline.annotators.SpeechToTextAnnotator": {
         "address": "localhost",
         "port": 3000,
-        "path": "/Speech"
+        "path": "/TextWithoutSpeech"
     },
     "edu.rosehulman.aixprize.pipeline.annotators.TextConfidenceAnnotator": {
         "address": "localhost",
@@ -33,5 +33,10 @@
         "address": "localhost",
         "port": 3000,
         "path": "/Feedback"
-    }
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.NLPProcessorAnnotator":{
+		"address": "localhost",
+		"port": 3001,
+		"path": "/NLPUnit"
+	}
 }
