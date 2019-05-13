@@ -38,5 +38,10 @@
         "address": "localhost",
         "port": 3001,
         "path": "/SpatialRelationGen"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.SpeechToTextJavaAnnotator": {
+        "address": "localhost",
+        "port": 3001,
+        "path": "/Speech"
     }
 }

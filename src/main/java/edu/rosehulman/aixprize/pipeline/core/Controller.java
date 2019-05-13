@@ -20,7 +20,7 @@ public class Controller {
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
 		File compoundAnnotatorDescriptor = new File(
-				"desc/CompoundAnnotatorDescriptor.xml");
+				"desc/SpeechTestAnnotatorDescriptor.xml");
 		if (!compoundAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + compoundAnnotatorDescriptor.getAbsolutePath());
 		}
