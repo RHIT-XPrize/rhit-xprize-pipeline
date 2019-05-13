@@ -6,6 +6,9 @@
     <delegateAnalysisEngine key="SpatialAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="MetadataAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>MitchellTylerTestDescriptor</name>
@@ -17,6 +20,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>SpatialAnnotatorDescriptor</node>
+        <node>MetadataAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
