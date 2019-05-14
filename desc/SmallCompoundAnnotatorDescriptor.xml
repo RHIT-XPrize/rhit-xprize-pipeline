@@ -3,11 +3,17 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="SpeechToTextAnnotatorDescriptor">
-      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/SpeechToTextAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="SpeechToTextJavaAnnotatorDescriptor">
+      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/SpeechToTextJavaAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="NLPProcessorAnnotatorDescriptor">
       <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/NLPProcessorAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="SpatialRelationshipDescriptor">
+      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="MetadataAnnotatorDescriptor">
+      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -19,8 +25,10 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>SpeechToTextAnnotatorDescriptor</node>
+        <node>SpeechToTextJavaAnnotatorDescriptor</node>
         <node>NLPProcessorAnnotatorDescriptor</node>
+        <node>SpatialRelationshipDescriptor</node>
+        <node>MetadataAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
