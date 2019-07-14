@@ -100,40 +100,40 @@ public class SpatialRelationBlock extends Annotation{
 		jcasType.ll_cas.ll_setIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_id, v);
 	}
 	
-	public int getx(int addr) {
+	public double getx(int addr) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_x == null)
 			jcasType.jcas.throwFeatMissing("x", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return jcasType.ll_cas.ll_getIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_x);
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_x);
 	}
 
 	public void setx(int addr, int v) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_x == null)
 			jcasType.jcas.throwFeatMissing("x", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		jcasType.ll_cas.ll_setIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_x, v);
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_x, v);
 	}
 	
-	public int gety(int addr) {
+	public double gety(int addr) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_y == null)
 			jcasType.jcas.throwFeatMissing("y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return jcasType.ll_cas.ll_getIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_y);
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_y);
 	}
 
 	public void sety(int addr, int v) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_y == null)
 			jcasType.jcas.throwFeatMissing("y", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		jcasType.ll_cas.ll_setIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_y, v);
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_y, v);
 	}
 	
-	public int getz(int addr) {
+	public double getz(int addr) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_z == null)
 			jcasType.jcas.throwFeatMissing("z", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		return jcasType.ll_cas.ll_getIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_z);
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_z);
 	}
 
 	public void setz(int addr, int v) {
 		if (SpatialRelationBlock_Type.featOkTst && ((SpatialRelationBlock_Type) jcasType).casFeat_z == null)
 			jcasType.jcas.throwFeatMissing("z", "edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock");
-		jcasType.ll_cas.ll_setIntValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_z, v);
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((SpatialRelationBlock_Type) jcasType).casFeatCode_z, v);
 	}
 	
 	public int getleft(int addr) {
