@@ -27,7 +27,7 @@
       <fixedFlow>
         <node>SpatialRelationshipDescriptor</node>
         <node>SpeechToTextJavaAnnotatorDescriptor</node>
-        <!-- <node>NLPProcessorAnnotatorDescriptor</node> -->
+        <node>NLPProcessorAnnotatorDescriptor</node>
         <node>MetadataAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
