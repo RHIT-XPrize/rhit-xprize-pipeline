@@ -29,6 +29,9 @@ public class MetadataSelectedBlock_Type extends Annotation_Type{
 
 	final Feature casFeat_z;
 	final int casFeatCode_z;
+	
+	final Feature casFeat_confidenceValue;
+	final int casFeatCode_confidenceValue;
 
 	final Feature casFeat_left;
 	final int casFeatCode_left;
@@ -93,6 +96,18 @@ public class MetadataSelectedBlock_Type extends Annotation_Type{
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_z, v);
 	}
 
+	public double getConfidenceValue(int addr) {
+		if (featOkTst && casFeat_confidenceValue == null)
+			jcas.throwFeatMissing("confidenceValue", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidenceValue);
+	}
+
+	public void setConfidenceValue(int addr, double v) {
+		if (featOkTst && casFeat_confidenceValue == null)
+			jcas.throwFeatMissing("confidenceValue", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_confidenceValue, v);
+	}
+	
 	public String getLeft(int addr) {
 		if (featOkTst && casFeat_left == null)
 			jcas.throwFeatMissing("left", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");
@@ -181,6 +196,10 @@ public class MetadataSelectedBlock_Type extends Annotation_Type{
 		casFeat_z= jcas.getRequiredFeatureDE(casType, "z", "uima.cas.Double", featOkTst);
 		casFeatCode_z = (null == casFeat_z) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_z).getCode();
+		
+		casFeat_confidenceValue= jcas.getRequiredFeatureDE(casType, "confidenceValue", "uima.cas.Double", featOkTst);
+		casFeatCode_confidenceValue = (null == casFeat_confidenceValue) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_confidenceValue).getCode();
 		
 		casFeat_left = jcas.getRequiredFeatureDE(casType, "left", "uima.cas.String", featOkTst);
 		casFeatCode_left = (null == casFeat_left) ? JCas.INVALID_FEATURE_CODE

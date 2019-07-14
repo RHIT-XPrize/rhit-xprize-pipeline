@@ -136,6 +136,18 @@ public class MetadataSelectedBlock extends Annotation{
 		jcasType.ll_cas.ll_setIntValue(addr, ((MetadataSelectedBlock_Type) jcasType).casFeatCode_z, v);
 	}
 	
+	public int getconfidenceValue(int addr) {
+		if (MetadataSelectedBlock_Type.featOkTst && ((MetadataSelectedBlock_Type) jcasType).casFeat_confidenceValue == null)
+			jcasType.jcas.throwFeatMissing("confidenceValue", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");
+		return jcasType.ll_cas.ll_getIntValue(addr, ((MetadataSelectedBlock_Type) jcasType).casFeatCode_confidenceValue);
+	}
+
+	public void setconfidenceValue(int addr, int v) {
+		if (MetadataSelectedBlock_Type.featOkTst && ((MetadataSelectedBlock_Type) jcasType).casFeat_confidenceValue == null)
+			jcasType.jcas.throwFeatMissing("confidenceValue", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");
+		jcasType.ll_cas.ll_setIntValue(addr, ((MetadataSelectedBlock_Type) jcasType).casFeatCode_confidenceValue, v);
+	}
+	
 	public int getleft(int addr) {
 		if (MetadataSelectedBlock_Type.featOkTst && ((MetadataSelectedBlock_Type) jcasType).casFeat_left == null)
 			jcasType.jcas.throwFeatMissing("left", "edu.rosehulman.aixprize.pipeline.types.MetadataSelectedBlock");

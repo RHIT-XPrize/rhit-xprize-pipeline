@@ -40,6 +40,11 @@
               <name>z</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
+            <featureDescription>
+              <name>confidenceValue</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>		
             <featureDescription>
               <name>left</name>

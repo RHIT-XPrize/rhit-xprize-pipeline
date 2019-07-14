@@ -4,16 +4,16 @@
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
     <delegateAnalysisEngine key="SpeechToTextJavaAnnotatorDescriptor">
-      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/SpeechToTextJavaAnnotatorDescriptor.xml"/>
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpeechToTextJavaAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="NLPProcessorAnnotatorDescriptor">
-      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/NLPProcessorAnnotatorDescriptor.xml"/>
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/NLPProcessorAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="SpatialRelationshipDescriptor">
-      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="MetadataAnnotatorDescriptor">
-      <import location="/Users/kniermj/Desktop/Capstone/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -25,9 +25,9 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>SpeechToTextJavaAnnotatorDescriptor</node>
-        <node>NLPProcessorAnnotatorDescriptor</node>
         <node>SpatialRelationshipDescriptor</node>
+        <node>SpeechToTextJavaAnnotatorDescriptor</node>
+        <!-- <node>NLPProcessorAnnotatorDescriptor</node> -->
         <node>MetadataAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
