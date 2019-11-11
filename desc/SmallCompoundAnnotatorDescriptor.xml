@@ -6,14 +6,14 @@
     <delegateAnalysisEngine key="SpeechToTextJavaAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpeechToTextJavaAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="NLPProcessorAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/NLPProcessorAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="SpatialRelationshipDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="MetadataAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AggregateConfidenceAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/AggregateConfidenceAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -27,8 +27,8 @@
       <fixedFlow>
         <node>SpatialRelationshipDescriptor</node>
         <node>SpeechToTextJavaAnnotatorDescriptor</node>
-        <node>NLPProcessorAnnotatorDescriptor</node>
         <node>MetadataAnnotatorDescriptor</node>
+        <node>AggregateConfidenceAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
