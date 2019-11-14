@@ -19,7 +19,9 @@ public class Controller {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-		File compoundAnnotatorDescriptor = new File("desc/BlockDetectionAnnotatorDescriptor.xml");
+		//IntegratedPipelineAnnotatorDescriptor
+		//BlockDetectionAnnotatorDescriptor
+		File compoundAnnotatorDescriptor = new File("desc/IntegratedPipelineAnnotatorDescriptor.xml");
 		if (!compoundAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + compoundAnnotatorDescriptor.getAbsolutePath());
 		}

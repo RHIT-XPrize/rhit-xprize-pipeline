@@ -53,5 +53,15 @@
         "address": "localhost",
         "port": 3001,
         "path": "/MetadataCompiler"
+	},
+     "edu.rosehulman.aixprize.pipeline.annotators.CoordinateTransformationAnnotator": {
+        "address": "localhost",
+        "port": 3000,
+        "path": "/CoordTransformation"
+	},
+     "edu.rosehulman.aixprize.pipeline.annotators.ActionAnnotator": {
+        "address": "137.112.217.252",
+        "port": 3002,
+        "path": "/action"
 	}
 }

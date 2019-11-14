@@ -30,6 +30,9 @@
     <delegateAnalysisEngine key="CoordinateTransformationDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/CoordinateTransformationDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ActionAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/ActionAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>CompoundAnnotator</name>
@@ -49,6 +52,7 @@
         <node>AggregateConfidenceAnnotatorDescriptor</node>
         <node>OutputAnnotatorDescriptor</node>
         <node>CoordinateTransformationDescriptor</node>
+        <node>ActionAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
