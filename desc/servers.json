@@ -19,10 +19,10 @@
         "port": 3000,
         "path": "/TextWithoutSpeech"
     },
-    "edu.rosehulman.aixprize.pipeline.annotators.TextConfidenceAnnotator": {
+    "edu.rosehulman.aixprize.pipeline.annotators.ColorConfidenceAnnotator": {
         "address": "localhost",
         "port": 3000,
-        "path": "/TextProcessing"
+        "path": "/ColorConfidence"
     },
     "edu.rosehulman.aixprize.pipeline.annotators.AggregateConfidenceAnnotator": {
         "address": "localhost",

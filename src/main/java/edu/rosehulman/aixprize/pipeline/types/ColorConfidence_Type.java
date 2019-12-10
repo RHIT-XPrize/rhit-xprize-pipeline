@@ -8,17 +8,17 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
-public class TextConfidence_Type extends Annotation_Type {
+public class ColorConfidence_Type extends Annotation_Type {
 	/** @generated */
 	@SuppressWarnings("hiding")
-	public final static int typeIndexID = TextConfidence.typeIndexID;
+	public final static int typeIndexID = ColorConfidence.typeIndexID;
 	/**
 	 * @generated
 	 * @modifiable
 	 */
 	@SuppressWarnings("hiding")
 	public final static boolean featOkTst = JCasRegistry
-			.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.TextConfidence");
+			.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
 
 	/** @generated */
 	final Feature casFeat_id;
@@ -38,7 +38,7 @@ public class TextConfidence_Type extends Annotation_Type {
 	 */
 	public double getConfidence(int addr) {
 		if (featOkTst && casFeat_confidence == null)
-			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
+			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidence);
 	}
 	
@@ -50,7 +50,7 @@ public class TextConfidence_Type extends Annotation_Type {
 	 */
 	public double getId(int addr) {
 		if (featOkTst && casFeat_confidence == null)
-			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
+			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_id);
 	}
 
@@ -63,7 +63,7 @@ public class TextConfidence_Type extends Annotation_Type {
 	 */
 	public void setConfidece(int addr, double v) {
 		if (featOkTst && casFeat_confidence == null)
-			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
+			jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_confidence, v);
 	}
 	
@@ -76,7 +76,7 @@ public class TextConfidence_Type extends Annotation_Type {
 	 */
 	public void setId(int addr, double v) {
 		if (featOkTst && casFeat_id == null)
-			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
+			jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_id, v);
 	}
 
@@ -89,7 +89,7 @@ public class TextConfidence_Type extends Annotation_Type {
 	 * @param casType
 	 *            Type
 	 */
-	public TextConfidence_Type(JCas jcas, Type casType) {
+	public ColorConfidence_Type(JCas jcas, Type casType) {
 		super(jcas, casType);
 		casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 

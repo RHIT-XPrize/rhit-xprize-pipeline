@@ -5,21 +5,21 @@ import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
-public class TextConfidence extends Annotation {
+public class ColorConfidence extends Annotation {
 
 	/**
 	 * @generated
 	 * @ordered
 	 */
 	@SuppressWarnings("hiding")
-	public final static String _TypeName = "edu.rosehulman.aixprize.pipeline.types.TextConfidence";
+	public final static String _TypeName = "edu.rosehulman.aixprize.pipeline.types.ColorConfidence";
 
 	/**
 	 * @generated
 	 * @ordered
 	 */
 	@SuppressWarnings("hiding")
-	public final static int typeIndexID = JCasRegistry.register(TextConfidence.class);
+	public final static int typeIndexID = JCasRegistry.register(ColorConfidence.class);
 	/**
 	 * @generated
 	 * @ordered
@@ -41,7 +41,7 @@ public class TextConfidence extends Annotation {
 	 * 
 	 * @generated
 	 */
-	protected TextConfidence() {
+	protected ColorConfidence() {
 		/* intentionally empty block */}
 
 	/**
@@ -53,7 +53,7 @@ public class TextConfidence extends Annotation {
 	 * @param type
 	 *            the type of this Feature Structure
 	 */
-	public TextConfidence(int addr, TOP_Type type) {
+	public ColorConfidence(int addr, TOP_Type type) {
 		super(addr, type);
 		readObject();
 	}
@@ -63,7 +63,7 @@ public class TextConfidence extends Annotation {
 	 * @param jcas
 	 *            JCas to which this Feature Structure belongs
 	 */
-	public TextConfidence(JCas jcas) {
+	public ColorConfidence(JCas jcas) {
 		super(jcas);
 		readObject();
 	}
@@ -77,7 +77,7 @@ public class TextConfidence extends Annotation {
 	 * @param end
 	 *            offset to the end spot in the SofA
 	 */
-	public TextConfidence(JCas jcas, int begin, int end) {
+	public ColorConfidence(JCas jcas, int begin, int end) {
 		super(jcas);
 		setBegin(begin);
 		setEnd(end);
@@ -103,9 +103,9 @@ public class TextConfidence extends Annotation {
 	 * @return value of the feature
 	 */
 	public double getConfidence() {
-		if (TextConfidence_Type.featOkTst && ((TextConfidence_Type) jcasType).casFeat_confidence == null)
-			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
-		return jcasType.ll_cas.ll_getDoubleValue(addr, ((TextConfidence_Type) jcasType).casFeatCode_confidence);
+		if (ColorConfidence_Type.featOkTst && ((ColorConfidence_Type) jcasType).casFeat_confidence == null)
+			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((ColorConfidence_Type) jcasType).casFeatCode_confidence);
 	}
 	
 	/**
@@ -115,9 +115,9 @@ public class TextConfidence extends Annotation {
 	 * @return value of the feature
 	 */
 	public double getId() {
-		if (TextConfidence_Type.featOkTst && ((TextConfidence_Type) jcasType).casFeat_id == null)
-			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
-		return jcasType.ll_cas.ll_getDoubleValue(addr, ((TextConfidence_Type) jcasType).casFeatCode_id);
+		if (ColorConfidence_Type.featOkTst && ((ColorConfidence_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((ColorConfidence_Type) jcasType).casFeatCode_id);
 	}
 
 	/**
@@ -128,9 +128,9 @@ public class TextConfidence extends Annotation {
 	 *            value to set into the feature
 	 */
 	public void setConfidence(double v) {
-		if (TextConfidence_Type.featOkTst && ((TextConfidence_Type) jcasType).casFeat_confidence == null)
-			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
-		jcasType.ll_cas.ll_setDoubleValue(addr, ((TextConfidence_Type) jcasType).casFeatCode_confidence, v);
+		if (ColorConfidence_Type.featOkTst && ((ColorConfidence_Type) jcasType).casFeat_confidence == null)
+			jcasType.jcas.throwFeatMissing("confidence", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((ColorConfidence_Type) jcasType).casFeatCode_confidence, v);
 	}
 	
 	/**
@@ -141,8 +141,8 @@ public class TextConfidence extends Annotation {
 	 *            value to set into the feature
 	 */
 	public void setId(double v) {
-		if (TextConfidence_Type.featOkTst && ((TextConfidence_Type) jcasType).casFeat_id == null)
-			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.TextConfidence");
-		jcasType.ll_cas.ll_setDoubleValue(addr, ((TextConfidence_Type) jcasType).casFeatCode_id, v);
+		if (ColorConfidence_Type.featOkTst && ((ColorConfidence_Type) jcasType).casFeat_id == null)
+			jcasType.jcas.throwFeatMissing("id", "edu.rosehulman.aixprize.pipeline.types.ColorConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((ColorConfidence_Type) jcasType).casFeatCode_id, v);
 	}
 }
