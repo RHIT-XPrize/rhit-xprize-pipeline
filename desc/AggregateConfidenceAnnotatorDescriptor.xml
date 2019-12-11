@@ -32,7 +32,7 @@
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>normTextConf</name>
+              <name>normColorConf</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>

@@ -15,6 +15,9 @@
     <delegateAnalysisEngine key="NLPProcessorAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/NLPProcessorAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ColorConfidenceAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/ColorConfidenceAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="SpatialRelationshipDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
@@ -48,11 +51,11 @@
         <node>SpatialRelationshipDescriptor</node>
         <node>SpeechToTextJavaAnnotatorDescriptor</node>
         <node>NLPProcessorAnnotatorDescriptor</node>
+        <node>ColorConfidenceAnnotatorDescriptor</node>
         <node>MetadataAnnotatorDescriptor</node>
         <node>AggregateConfidenceAnnotatorDescriptor</node>
         <node>OutputAnnotatorDescriptor</node>
         <node>CoordinateTransformationDescriptor</node>
-        <node>ActionAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
