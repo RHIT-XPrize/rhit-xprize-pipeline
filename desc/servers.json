@@ -63,5 +63,10 @@
         "address": "137.112.217.252",
         "port": 3002,
         "path": "/action"
-	}
+	},
+	"edu.rosehulman.aixprize.pipeline.annotators.TextToSpeechJavaAnnotator": {
+        "address": "localhost",
+        "port": 3001,
+        "path": "/TextToSpeech"
+    }
 }
