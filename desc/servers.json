@@ -29,9 +29,9 @@
         "port": 3000,
         "path": "/AggregateConfidence"
     },
-    "edu.rosehulman.aixprize.pipeline.annotators.FeedbackAnnotator": {
+    "edu.rosehulman.aixprize.pipeline.annotators.ConfidenceFeedbackAnnotator": {
         "address": "localhost",
-        "port": 3000,
+        "port": 3001,
         "path": "/Feedback"
     },
     "edu.rosehulman.aixprize.pipeline.annotators.SpeechToTextJavaAnnotator": {
@@ -60,11 +60,11 @@
         "path": "/CoordTransformation"
 	},
      "edu.rosehulman.aixprize.pipeline.annotators.ActionAnnotator": {
-        "address": "137.112.217.252",
+        "address": "137.112.221.150",
         "port": 3002,
         "path": "/action"
 	},
-	"edu.rosehulman.aixprize.pipeline.annotators.TextToSpeechJavaAnnotator": {
+	"edu.rosehulman.aixprize.pipeline.annotators.TextToSpeechAnnotator": {
         "address": "localhost",
         "port": 3001,
         "path": "/TextToSpeech"

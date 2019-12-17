@@ -36,6 +36,12 @@
     <delegateAnalysisEngine key="ActionAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/ActionAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="ConfidenceFeedbackAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/ConfidenceFeedbackAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TextToSpeechAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/TextToSpeechAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>CompoundAnnotator</name>
@@ -56,6 +62,8 @@
         <node>AggregateConfidenceAnnotatorDescriptor</node>
         <node>OutputAnnotatorDescriptor</node>
         <node>CoordinateTransformationDescriptor</node>
+        <node>ConfidenceFeedbackAnnotatorDescriptor</node>
+        <node>ActionAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
