@@ -60,7 +60,7 @@
         "path": "/CoordTransformation"
 	},
      "edu.rosehulman.aixprize.pipeline.annotators.ActionAnnotator": {
-        "address": "137.112.221.150",
+        "address": "137.112.237.197",
         "port": 3002,
         "path": "/action"
 	},
