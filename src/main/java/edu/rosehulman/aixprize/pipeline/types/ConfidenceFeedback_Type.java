@@ -65,7 +65,7 @@ public class ConfidenceFeedback_Type extends Annotation_Type {
         super(jcas, casType);
         casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
-        casFeat_feedbackMsg = jcas.getRequiredFeatureDE(casType, "ConfidenceFeedback", "uima.cas.String", featOkTst);
+        casFeat_feedbackMsg = jcas.getRequiredFeatureDE(casType, "feedbackMsg", "uima.cas.String", featOkTst);
         casFeatCode_feedbackMsg = (null == casFeat_feedbackMsg) ? JCas.INVALID_FEATURE_CODE
                 : ((FeatureImpl) casFeat_feedbackMsg).getCode();
 

@@ -3,8 +3,9 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="MemorySaveAnnotatorDescriptor">
-    <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemorySaveAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="MemoryLoadAnnotatorDescriptor">
+    <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemoryLoadAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
@@ -43,8 +44,9 @@
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="TextToSpeechAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/TextToSpeechAnnotatorDescriptor.xml"/>
-    <delegateAnalysisEngine key="MemoryLoadAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemoryLoadAnnotatorDescriptor.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="MemorySaveAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemorySaveAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -56,6 +58,7 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
+      	<node>MemoryLoadAnnotatorDescriptor</node>
         <node>BlockDetectionAnnotatorDescriptor</node>
         <node>PointingDataAnnotatorDescriptor</node>
         <node>SpatialRelationshipDescriptor</node>
@@ -69,6 +72,7 @@
         <node>ConfidenceFeedbackAnnotatorDescriptor</node>
         <node>ActionAnnotatorDescriptor</node>
         <node>TextToSpeechAnnotatorDescriptor</node>
+        <node>MemorySaveAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
