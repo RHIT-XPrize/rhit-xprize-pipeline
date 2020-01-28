@@ -68,6 +68,7 @@
         <node>CoordinateTransformationDescriptor</node>
         <node>ConfidenceFeedbackAnnotatorDescriptor</node>
         <node>ActionAnnotatorDescriptor</node>
+        <node>TextToSpeechAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>

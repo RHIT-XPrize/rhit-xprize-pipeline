@@ -36,6 +36,11 @@
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
+            <featureDescription>
+              <name>spatialRelationshipConf</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>
           </features>
         </typeDescription>
       </types>

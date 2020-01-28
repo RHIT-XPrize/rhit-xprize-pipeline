@@ -39,6 +39,11 @@ public class AggregateConfidence_Type extends Annotation_Type {
 	final Feature casFeat_normColorConf;
 	/** @generated */
 	final int casFeatCode_normColorConf;
+	
+	/** @generated */
+	final Feature casFeat_spatialRelationshipConf;
+	/** @generated */
+	final int casFeatCode_spatialRelationshipConf;
 
 	/**
 	 * @generated
@@ -62,6 +67,12 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		if (featOkTst && casFeat_normColorConf == null)
 			jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normColorConf);
+	}
+	
+	public double getSpatialRelationshipConf(int addr) {
+		if (featOkTst && casFeat_spatialRelationshipConf == null)
+			jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_spatialRelationshipConf);
 	}
 
 	/**
@@ -99,6 +110,12 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		if (featOkTst && casFeat_normColorConf == null)
 			jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_normColorConf, v);
+	}
+	
+	public void setSpatialRelationshipConf(int addr, double v) {
+		if (featOkTst && casFeat_spatialRelationshipConf == null)
+			jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_spatialRelationshipConf, v);
 	}
 
 	/**
@@ -141,5 +158,9 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		casFeat_normColorConf = jcas.getRequiredFeatureDE(casType, "normColorConf", "uima.cas.Double", featOkTst);
 		casFeatCode_normColorConf = (null == casFeat_normColorConf) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_normColorConf).getCode();
+		
+		casFeat_spatialRelationshipConf = jcas.getRequiredFeatureDE(casType, "spatialRelationshipConf", "uima.cas.Double", featOkTst);
+		casFeatCode_spatialRelationshipConf = (null == casFeat_spatialRelationshipConf) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_spatialRelationshipConf).getCode();
 	}
 }

@@ -96,18 +96,6 @@ public class NLPProcessor extends Annotation {
 
 	// *--------------*
 	// * Feature: confidence
-
-	/**
-	 * getter for confidence - gets
-	 * 
-	 * @generated
-	 * @return value of the feature
-	 */
-	public boolean getUsesGesture() {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_usesGesture == null)
-			jcasType.jcas.throwFeatMissing("usesGesture", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return jcasType.ll_cas.ll_getBooleanValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_usesGesture);
-	}
 	
 	/**
 	 * getter for confidence - gets
@@ -115,22 +103,10 @@ public class NLPProcessor extends Annotation {
 	 * @generated
 	 * @return value of the feature
 	 */
-	public String getAssignedName() {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_assignedName == null)
-			jcasType.jcas.throwFeatMissing("assignedName", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_assignedName);
-	}
-	
-	public String getMods() {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_mods == null)
-			jcasType.jcas.throwFeatMissing("mods", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_mods);
-	}
-	
-	public String getCommands() {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_command == null)
-			jcasType.jcas.throwFeatMissing("command", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_command);
+	public String getOutput() {
+		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_output == null)
+			jcasType.jcas.throwFeatMissing("output", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
+		return jcasType.ll_cas.ll_getStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_output);
 	}
 
 	/**
@@ -140,33 +116,9 @@ public class NLPProcessor extends Annotation {
 	 * @param v
 	 *            value to set into the feature
 	 */
-	public void setAssignedName(String v) {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_assignedName == null)
-			jcasType.jcas.throwFeatMissing("assignedName", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		jcasType.ll_cas.ll_setStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_assignedName, v);
-	}
-	
-	/**
-	 * setter for confidence - sets
-	 * 
-	 * @generated
-	 * @param v
-	 *            value to set into the feature
-	 */
-	public void setUsesGesture(boolean v) {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_usesGesture == null)
-			jcasType.jcas.throwFeatMissing("usesGesture", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		jcasType.ll_cas.ll_setBooleanValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_usesGesture, v);
-	}
-	
-	public void setMods(String v) {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_mods == null)
-			jcasType.jcas.throwFeatMissing("mods", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		jcasType.ll_cas.ll_setStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_mods, v);
-	}
-	public void setCommands(String v) {
-		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_command == null)
-			jcasType.jcas.throwFeatMissing("command", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		jcasType.ll_cas.ll_setStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_command, v);
+	public void setOutput(String v) {
+		if (NLPProcessor_Type.featOkTst && ((NLPProcessor_Type) jcasType).casFeat_output == null)
+			jcasType.jcas.throwFeatMissing("output", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
+		jcasType.ll_cas.ll_setStringValue(addr, ((NLPProcessor_Type) jcasType).casFeatCode_output, v);
 	}
 }

@@ -17,22 +17,7 @@
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
-              <name>usesGesture</name>
-              <description/>
-              <rangeTypeName>uima.cas.Boolean</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>assignedName</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-			<featureDescription>
-              <name>mods</name>
-              <description/>
-              <rangeTypeName>uima.cas.String</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>command</name>
+              <name>output</name>
               <description/>
               <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>

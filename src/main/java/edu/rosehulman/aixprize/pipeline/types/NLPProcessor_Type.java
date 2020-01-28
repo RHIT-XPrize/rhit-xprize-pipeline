@@ -28,36 +28,11 @@ public class NLPProcessor_Type extends Annotation_Type {
 			.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
 
 	/** @generated */
-	final Feature casFeat_usesGesture;
+	final Feature casFeat_output;
 	/** @generated */
-	final int casFeatCode_usesGesture;
-	
-	/** @generated */
-	final Feature casFeat_assignedName;
-	/** @generated */
-	final int casFeatCode_assignedName;
-	
-	/** @generated */
-	final Feature casFeat_mods;
-	/** @generated */
-	final int casFeatCode_mods;
-	
-	/** @generated */
-	final Feature casFeat_command;
-	/** @generated */
-	final int casFeatCode_command;
+	final int casFeatCode_output;
 
-	/**
-	 * @generated
-	 * @param addr
-	 *            low level Feature Structure reference
-	 * @return the feature value
-	 */
-	public boolean getUsesGesture(int addr) {
-		if (featOkTst && casFeat_usesGesture == null)
-			jcas.throwFeatMissing("usesGesture", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return ll_cas.ll_getBooleanValue(addr, casFeatCode_usesGesture);
-	}
+	
 	
 	/**
 	 * @generated
@@ -65,34 +40,10 @@ public class NLPProcessor_Type extends Annotation_Type {
 	 *            low level Feature Structure reference
 	 * @return the feature value
 	 */
-	public String getAssignedName(int addr) {
-		if (featOkTst && casFeat_assignedName == null)
-			jcas.throwFeatMissing("assignedName", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return ll_cas.ll_getStringValue(addr, casFeatCode_assignedName);
-	}
-	
-	public String getMods(int addr) {
-		if (featOkTst && casFeat_mods == null)
-			jcas.throwFeatMissing("mods", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return ll_cas.ll_getStringValue(addr, casFeatCode_mods);
-	}
-	public String getCommand(int addr) {
-		if (featOkTst && casFeat_command == null)
-			jcas.throwFeatMissing("command", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		return ll_cas.ll_getStringValue(addr, casFeatCode_command);
-	}
-
-	/**
-	 * @generated
-	 * @param addr
-	 *            low level Feature Structure reference
-	 * @param v
-	 *            value to set
-	 */
-	public void setUsesGesture(int addr, boolean v) {
-		if (featOkTst && casFeat_usesGesture == null)
-			jcas.throwFeatMissing("usesGesture", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		ll_cas.ll_setBooleanValue(addr, casFeatCode_usesGesture, v);
+	public String getOutput(int addr) {
+		if (featOkTst && casFeat_output == null)
+			jcas.throwFeatMissing("output", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
+		return ll_cas.ll_getStringValue(addr, casFeatCode_output);
 	}
 	
 	/**
@@ -102,23 +53,12 @@ public class NLPProcessor_Type extends Annotation_Type {
 	 * @param v
 	 *            value to set
 	 */
-	public void setAssignedName(int addr, String v) {
-		if (featOkTst && casFeat_assignedName == null)
-			jcas.throwFeatMissing("assignedName", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		ll_cas.ll_setStringValue(addr, casFeatCode_assignedName, v);
+	public void setOutput(int addr, String v) {
+		if (featOkTst && casFeat_output == null)
+			jcas.throwFeatMissing("output", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
+		ll_cas.ll_setStringValue(addr, casFeatCode_output, v);
 	}
 	
-	public void setMods(int addr, String v) {
-		if (featOkTst && casFeat_mods == null)
-			jcas.throwFeatMissing("mods", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		ll_cas.ll_setStringValue(addr, casFeatCode_mods, v);
-	}
-
-	public void setCommand(int addr, String v) {
-		if (featOkTst && casFeat_command == null)
-			jcas.throwFeatMissing("command", "edu.rosehulman.aixprize.pipeline.types.NLPProcessor");
-		ll_cas.ll_setStringValue(addr, casFeatCode_command, v);
-	}
 	/**
 	 * initialize variables to correspond with Cas Type and Features
 	 * 
@@ -132,20 +72,9 @@ public class NLPProcessor_Type extends Annotation_Type {
 		super(jcas, casType);
 		casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
-		casFeat_usesGesture = jcas.getRequiredFeatureDE(casType, "usesGesture", "uima.cas.Boolean", featOkTst);
-		casFeatCode_usesGesture = (null == casFeat_usesGesture) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_usesGesture).getCode();
-		
-		casFeat_assignedName = jcas.getRequiredFeatureDE(casType, "assignedName", "uima.cas.String", featOkTst);
-		casFeatCode_assignedName = (null == casFeat_assignedName) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_assignedName).getCode();
-		
-		casFeat_mods = jcas.getRequiredFeatureDE(casType, "mods", "uima.cas.String", featOkTst);
-		casFeatCode_mods = (null == casFeat_mods) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_mods).getCode();
-		casFeat_command = jcas.getRequiredFeatureDE(casType, "mods", "uima.cas.String", featOkTst);
-		casFeatCode_command = (null == casFeat_command) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_command).getCode();
+		casFeat_output = jcas.getRequiredFeatureDE(casType, "output", "uima.cas.String", featOkTst);
+		casFeatCode_output = (null == casFeat_output) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_output).getCode();
 
 	}
 }
