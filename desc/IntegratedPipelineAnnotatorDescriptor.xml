@@ -3,6 +3,8 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="MemorySaveAnnotatorDescriptor">
+    <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemorySaveAnnotatorDescriptor.xml"/>
     <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
@@ -41,6 +43,8 @@
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="TextToSpeechAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/TextToSpeechAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="MemoryLoadAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MemoryLoadAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>

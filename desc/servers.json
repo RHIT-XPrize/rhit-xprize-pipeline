@@ -1,4 +1,9 @@
 {
+    "edu.rosehulman.aixprize.pipeline.annotators.MemoryLoadAnnotator": {
+      "address": "localhost",
+      "port": 3001,
+      "path": "/MemoryLoad"
+    },
     "edu.rosehulman.aixprize.pipeline.annotators.PointingAnnotator": {
         "address": "localhost",
         "port": 56814,
@@ -68,5 +73,10 @@
         "address": "localhost",
         "port": 3001,
         "path": "/TextToSpeech"
+    },
+    "edu.rosehulman.aixprize.pipeline.annotators.MemorySaveAnnotator": {
+      "address": "localhost",
+      "port": 3001,
+      "path": "/MemorySave"
     }
 }

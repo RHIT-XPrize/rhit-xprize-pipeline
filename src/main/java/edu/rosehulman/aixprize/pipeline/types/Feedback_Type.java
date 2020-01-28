@@ -14,6 +14,7 @@ public class Feedback_Type extends Annotation_Type {
     /** @generated */
     @SuppressWarnings("hiding")
     public final static int typeIndexID = Feedback.typeIndexID;
+    
     /**
      * @generated
      * @modifiable
