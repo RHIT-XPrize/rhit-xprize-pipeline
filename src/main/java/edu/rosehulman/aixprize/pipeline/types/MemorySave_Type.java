@@ -15,17 +15,17 @@ import org.apache.uima.jcas.tcas.Annotation_Type;
  * 
  * @generated
  */
-public class Memory_Type extends Annotation_Type {
+public class MemorySave_Type extends Annotation_Type {
 	/** @generated */
 	@SuppressWarnings("hiding")
-	public final static int typeIndexID = Memory.typeIndexID;
+	public final static int typeIndexID = MemorySave.typeIndexID;
 	/**
 	 * @generated
 	 * @modifiable
 	 */
 	@SuppressWarnings("hiding")
 	public final static boolean featOkTst = JCasRegistry
-			.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.Memory");
+			.getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.MemorySave");
 
 	/** @generated */
 	final Feature casFeat_text;
@@ -40,7 +40,7 @@ public class Memory_Type extends Annotation_Type {
 	 */
 	public String getText(int addr) {
 		if (featOkTst && casFeat_text == null)
-			jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.Memory");
+			jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemorySave");
 		return ll_cas.ll_getStringValue(addr, casFeatCode_text);
 	}
 
@@ -53,7 +53,7 @@ public class Memory_Type extends Annotation_Type {
 	 */
 	public void setText(int addr, String v) {
 		if (featOkTst && casFeat_text == null)
-			jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.Memory");
+			jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemorySave");
 		ll_cas.ll_setStringValue(addr, casFeatCode_text, v);
 	}
 
@@ -66,7 +66,7 @@ public class Memory_Type extends Annotation_Type {
 	 * @param casType
 	 *            Type
 	 */
-	public Memory_Type(JCas jcas, Type casType) {
+	public MemorySave_Type(JCas jcas, Type casType) {
 		super(jcas, casType);
 		casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 

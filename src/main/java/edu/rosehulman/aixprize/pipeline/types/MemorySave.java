@@ -7,13 +7,13 @@ import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 import org.apache.uima.jcas.tcas.Annotation;
 
-public class Memory extends Annotation {
+public class MemorySave extends Annotation {
 	/**
 	 * @generated
 	 * @ordered
 	 */
 	@SuppressWarnings("hiding")
-	public final static int typeIndexID = JCasRegistry.register(Memory.class);
+	public final static int typeIndexID = JCasRegistry.register(MemorySave.class);
 	/**
 	 * @generated
 	 * @ordered
@@ -35,7 +35,7 @@ public class Memory extends Annotation {
 	 *
 	 * @generated
 	 */
-	protected Memory() {
+	protected MemorySave() {
 		/* intentionally empty block */}
 
 	/**
@@ -47,7 +47,7 @@ public class Memory extends Annotation {
 	 * @param type
 	 *            the type of this Feature Structure
 	 */
-	public Memory(int addr, TOP_Type type) {
+	public MemorySave(int addr, TOP_Type type) {
 		super(addr, type);
 		readObject();
 	}
@@ -57,7 +57,7 @@ public class Memory extends Annotation {
 	 * @param jcas
 	 *            JCas to which this Feature Structure belongs
 	 */
-	public Memory(JCas jcas) {
+	public MemorySave(JCas jcas) {
 		super(jcas);
 		readObject();
 	}
@@ -71,7 +71,7 @@ public class Memory extends Annotation {
 	 * @param end
 	 *            offset to the end spot in the SofA
 	 */
-	public Memory(JCas jcas, int begin, int end) {
+	public MemorySave(JCas jcas, int begin, int end) {
 		super(jcas);
 		setBegin(begin);
 		setEnd(end);
@@ -97,9 +97,9 @@ public class Memory extends Annotation {
 	 * @return value of the feature
 	 */
 	public String getText() {
-		if (Memory_Type.featOkTst && ((Memory_Type) jcasType).casFeat_text == null)
-			jcasType.jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemoryType");
-		return jcasType.ll_cas.ll_getStringValue(addr, ((Memory_Type) jcasType).casFeatCode_text);
+		if (MemorySave_Type.featOkTst && ((MemorySave_Type) jcasType).casFeat_text == null)
+			jcasType.jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemorySaveType");
+		return jcasType.ll_cas.ll_getStringValue(addr, ((MemorySave_Type) jcasType).casFeatCode_text);
 	}
 
 	/**
@@ -110,8 +110,8 @@ public class Memory extends Annotation {
 	 *            value to set into the feature
 	 */
 	public void setText(String v) {
-		if (Memory_Type.featOkTst && ((Memory_Type) jcasType).casFeat_text == null)
-			jcasType.jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemoryType");
-		jcasType.ll_cas.ll_setStringValue(addr, ((Memory_Type) jcasType).casFeatCode_text, v);
+		if (MemorySave_Type.featOkTst && ((MemorySave_Type) jcasType).casFeat_text == null)
+			jcasType.jcas.throwFeatMissing("namedBlocks", "edu.rosehulman.aixprize.pipeline.types.MemorySaveType");
+		jcasType.ll_cas.ll_setStringValue(addr, ((MemorySave_Type) jcasType).casFeatCode_text, v);
 	}
 }
