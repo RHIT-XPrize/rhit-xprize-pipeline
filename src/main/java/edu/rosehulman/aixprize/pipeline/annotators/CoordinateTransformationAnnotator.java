@@ -5,4 +5,4 @@ import edu.rosehulman.aixprize.pipeline.http.HttpAnnotator;
 /**
  * Communicates with a Python script to find color words in a file.
  */
-public class TextConfidenceAnnotator extends HttpAnnotator { }
+public class CoordinateTransformationAnnotator extends HttpAnnotator { }

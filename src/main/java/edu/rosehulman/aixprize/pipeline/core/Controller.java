@@ -19,8 +19,10 @@ public class Controller {
 		Log log = LogFactory.getLog(Controller.class);
 		log.info("UIMA Version: " + UIMAFramework.getVersionString());
 
-		File compoundAnnotatorDescriptor = new File(
-				"desc/CompoundAnnotatorDescriptor.xml");
+		//IntegratedPipelineAnnotatorDescriptor
+		//BlockDetectionAnnotatorDescriptor
+		//HelloWorld
+		File compoundAnnotatorDescriptor = new File("desc/IntegratedPipelineAnnotatorDescriptor.xml");
 		if (!compoundAnnotatorDescriptor.exists()) {
 			log.fatal("Couldn't find descriptor at " + compoundAnnotatorDescriptor.getAbsolutePath());
 		}
@@ -36,7 +38,7 @@ public class Controller {
 			analysisEngine.process(cas);
 			AnnotationIndex<Annotation> index = cas.getAnnotationIndex();
 			index.forEach(annotation -> log.info("Found annotation: " + annotation));
-
+			
 			cas.reset();
 		} catch (IOException e) {
 			log.fatal("Failed to load descriptor.");

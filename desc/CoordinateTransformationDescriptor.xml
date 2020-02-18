@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>edu.rosehulman.aixprize.pipeline.annotators.AggregateConfidenceAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>edu.rosehulman.aixprize.pipeline.annotators.CoordinateTransformationAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>AggregateConfidenceAnnotatorDescriptor</name>
+    <name>CoordinateTransformationDescriptor</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -11,36 +11,26 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <types>
-        <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.AggregateConfidence</name>
+      <typeDescription>
+          <name>edu.rosehulman.aixprize.pipeline.types.CoordinateTransformation</name>
           <description/>
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
             <featureDescription>
-              <name>id</name>
+              <name>x</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
+            </featureDescription>		
             <featureDescription>
-              <name>confidence</name>
+              <name>y</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
+            </featureDescription>		
             <featureDescription>
-              <name>normPointingConf</name>
+              <name>z</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>normColorConf</name>
-              <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
-            <featureDescription>
-              <name>spatialRelationshipConf</name>
-              <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
+            </featureDescription>	
           </features>
         </typeDescription>
       </types>
@@ -49,8 +39,9 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.CoordinateTransformation</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

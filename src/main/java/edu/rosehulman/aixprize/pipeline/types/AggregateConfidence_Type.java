@@ -36,9 +36,14 @@ public class AggregateConfidence_Type extends Annotation_Type {
 	final int casFeatCode_normPointingConf;
 
 	/** @generated */
-	final Feature casFeat_normTextConf;
+	final Feature casFeat_normColorConf;
 	/** @generated */
-	final int casFeatCode_normTextConf;
+	final int casFeatCode_normColorConf;
+	
+	/** @generated */
+	final Feature casFeat_spatialRelationshipConf;
+	/** @generated */
+	final int casFeatCode_spatialRelationshipConf;
 
 	/**
 	 * @generated
@@ -58,10 +63,16 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normPointingConf);
 	}
 
-	public double getNormTextConf(int addr) {
-		if (featOkTst && casFeat_normTextConf == null)
-			jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
-		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normTextConf);
+	public double getNormColorConf(int addr) {
+		if (featOkTst && casFeat_normColorConf == null)
+			jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_normColorConf);
+	}
+	
+	public double getSpatialRelationshipConf(int addr) {
+		if (featOkTst && casFeat_spatialRelationshipConf == null)
+			jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return ll_cas.ll_getDoubleValue(addr, casFeatCode_spatialRelationshipConf);
 	}
 
 	/**
@@ -95,10 +106,16 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		ll_cas.ll_setDoubleValue(addr, casFeatCode_normPointingConf, v);
 	}
 	
-	public void setNormTextConf(int addr, double v) {
-		if (featOkTst && casFeat_normTextConf == null)
-			jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
-		ll_cas.ll_setDoubleValue(addr, casFeatCode_normTextConf, v);
+	public void setNormColorConf(int addr, double v) {
+		if (featOkTst && casFeat_normColorConf == null)
+			jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_normColorConf, v);
+	}
+	
+	public void setSpatialRelationshipConf(int addr, double v) {
+		if (featOkTst && casFeat_spatialRelationshipConf == null)
+			jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		ll_cas.ll_setDoubleValue(addr, casFeatCode_spatialRelationshipConf, v);
 	}
 
 	/**
@@ -138,8 +155,12 @@ public class AggregateConfidence_Type extends Annotation_Type {
 		casFeatCode_normPointingConf = (null == casFeat_normPointingConf) ? JCas.INVALID_FEATURE_CODE
 				: ((FeatureImpl) casFeat_normPointingConf).getCode();
 		
-		casFeat_normTextConf = jcas.getRequiredFeatureDE(casType, "normTextConf", "uima.cas.Double", featOkTst);
-		casFeatCode_normTextConf = (null == casFeat_normTextConf) ? JCas.INVALID_FEATURE_CODE
-				: ((FeatureImpl) casFeat_normTextConf).getCode();
+		casFeat_normColorConf = jcas.getRequiredFeatureDE(casType, "normColorConf", "uima.cas.Double", featOkTst);
+		casFeatCode_normColorConf = (null == casFeat_normColorConf) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_normColorConf).getCode();
+		
+		casFeat_spatialRelationshipConf = jcas.getRequiredFeatureDE(casType, "spatialRelationshipConf", "uima.cas.Double", featOkTst);
+		casFeatCode_spatialRelationshipConf = (null == casFeat_spatialRelationshipConf) ? JCas.INVALID_FEATURE_CODE
+				: ((FeatureImpl) casFeat_spatialRelationshipConf).getCode();
 	}
 }

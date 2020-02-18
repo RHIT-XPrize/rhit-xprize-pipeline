@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
-  <primitive>true</primitive>  <annotatorImplementationName>edu.rosehulman.aixprize.pipeline.annotators.AggregateConfidenceAnnotator</annotatorImplementationName>
+  <primitive>true</primitive>  <annotatorImplementationName>edu.rosehulman.aixprize.pipeline.annotators.SpatialRelationAnnotator</annotatorImplementationName>
   <analysisEngineMetaData>
-    <name>AggregateConfidenceAnnotatorDescriptor</name>
+    <name>SpatialRelationAnnotatorDescriptor</name>
     <description/>
     <version>1.0</version>
     <vendor/>
@@ -11,8 +11,8 @@
     <configurationParameterSettings/>
     <typeSystemDescription>
       <types>
-        <typeDescription>
-          <name>edu.rosehulman.aixprize.pipeline.types.AggregateConfidence</name>
+      <typeDescription>
+          <name>edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock</name>
           <description/>
           <supertypeName>uima.tcas.Annotation</supertypeName>
           <features>
@@ -22,25 +22,45 @@
               <rangeTypeName>uima.cas.Double</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>confidence</name>
+              <name>name</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>	
+            <featureDescription>
+              <name>x</name>
               <description/>
               <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>		
+            <featureDescription>
+              <name>y</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>		
+            <featureDescription>
+              <name>z</name>
+              <description/>
+              <rangeTypeName>uima.cas.Double</rangeTypeName>
+            </featureDescription>		
+            <featureDescription>
+              <name>left</name>
+              <description/>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>normPointingConf</name>
+              <name>right</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>normColorConf</name>
+              <name>front</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
             </featureDescription>
             <featureDescription>
-              <name>spatialRelationshipConf</name>
+              <name>behind</name>
               <description/>
-              <rangeTypeName>uima.cas.Double</rangeTypeName>
-            </featureDescription>
+              <rangeTypeName>uima.cas.String</rangeTypeName>
+            </featureDescription>		
           </features>
         </typeDescription>
       </types>
@@ -49,8 +69,9 @@
     <fsIndexCollection/>
     <capabilities>
       <capability>
-        <inputs/>
-        <outputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.rosehulman.aixprize.pipeline.types.SpatialRelationBlock</type>
+        </outputs>
         <languagesSupported/>
       </capability>
     </capabilities>

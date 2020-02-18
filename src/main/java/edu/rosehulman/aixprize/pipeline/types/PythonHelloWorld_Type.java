@@ -10,23 +10,22 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
-public class Feedback_Type extends Annotation_Type {
+public class PythonHelloWorld_Type extends Annotation_Type {
     /** @generated */
     @SuppressWarnings("hiding")
-    public final static int typeIndexID = Feedback.typeIndexID;
-    
+    public final static int typeIndexID = PythonHelloWorld.typeIndexID;
     /**
      * @generated
      * @modifiable
      */
     @SuppressWarnings("hiding")
     public final static boolean featOkTst = JCasRegistry
-            .getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.Feedback");
+            .getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.PythonHelloWorld");
 
     /** @generated */
-    final Feature casFeat_feedbackMsg;
+    final Feature casFeat_text;
     /** @generated */
-    final int casFeatCode_feedbackMsg;
+    final int casFeatCode_text;
 
     /**
      * @generated
@@ -34,10 +33,10 @@ public class Feedback_Type extends Annotation_Type {
      *            low level Feature Structure reference
      * @return the feature value
      */
-    public double getFeedbackMsg(int addr) {
-        if (featOkTst && casFeat_feedbackMsg == null)
-            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.Feedback");
-        return ll_cas.ll_getDoubleValue(addr, casFeatCode_feedbackMsg);
+    public String getText(int addr) {
+        if (featOkTst && casFeat_text == null)
+            jcas.throwFeatMissing("text", "edu.rosehulman.aixprize.pipeline.types.PythonHelloWorld");
+        return ll_cas.ll_getStringValue(addr, casFeatCode_text);
     }
 
     /**
@@ -47,10 +46,10 @@ public class Feedback_Type extends Annotation_Type {
      * @param v
      *            value to set
      */
-    public void setFeedbackMsg(int addr, double v) {
-        if (featOkTst && casFeat_feedbackMsg == null)
-            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.Feedback");
-        ll_cas.ll_setDoubleValue(addr, casFeatCode_feedbackMsg, v);
+    public void setText(int addr, String v) {
+        if (featOkTst && casFeat_text == null)
+            jcas.throwFeatMissing("text", "edu.rosehulman.aixprize.pipeline.types.PythonHelloWorld");
+        ll_cas.ll_setStringValue(addr, casFeatCode_text, v);
     }
 
     /**
@@ -62,13 +61,13 @@ public class Feedback_Type extends Annotation_Type {
      * @param casType
      *            Type
      */
-    public Feedback_Type(JCas jcas, Type casType) {
+    public PythonHelloWorld_Type(JCas jcas, Type casType) {
         super(jcas, casType);
         casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
-        casFeat_feedbackMsg = jcas.getRequiredFeatureDE(casType, "feedback", "uima.cas.String", featOkTst);
-        casFeatCode_feedbackMsg = (null == casFeat_feedbackMsg) ? JCas.INVALID_FEATURE_CODE
-                : ((FeatureImpl) casFeat_feedbackMsg).getCode();
+        casFeat_text = jcas.getRequiredFeatureDE(casType, "text", "uima.cas.String", featOkTst);
+        casFeatCode_text = (null == casFeat_text) ? JCas.INVALID_FEATURE_CODE
+                : ((FeatureImpl) casFeat_text).getCode();
 
     }
 }

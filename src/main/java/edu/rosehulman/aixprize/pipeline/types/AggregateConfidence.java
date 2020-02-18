@@ -114,10 +114,16 @@ public class AggregateConfidence extends Annotation {
 		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normPointingConf);
 	}
 	
-	public double getNormTextConfidence() {
-		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normTextConf == null)
-			jcasType.jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
-		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normTextConf);
+	public double getNormColorConfidence() {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normColorConf == null)
+			jcasType.jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normColorConf);
+	}
+	
+	public double getSpatialRelationshipConfidence() {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_spatialRelationshipConf == null)
+			jcasType.jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		return jcasType.ll_cas.ll_getDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_spatialRelationshipConf);
 	}
 	
 	/**
@@ -151,10 +157,16 @@ public class AggregateConfidence extends Annotation {
 		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normPointingConf, v);
 	}
 	
-	public void setNormTextConf(double v) {
-		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normTextConf == null)
-			jcasType.jcas.throwFeatMissing("normTextConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
-		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normTextConf, v);
+	public void setNormColorConf(double v) {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_normColorConf == null)
+			jcasType.jcas.throwFeatMissing("normColorConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_normColorConf, v);
+	}
+	
+	public void setSpatialRelationshipConf(double v) {
+		if (AggregateConfidence_Type.featOkTst && ((AggregateConfidence_Type) jcasType).casFeat_spatialRelationshipConf == null)
+			jcasType.jcas.throwFeatMissing("spatialRelationshipConf", "edu.rosehulman.aixprize.pipeline.types.AggregateConfidence");
+		jcasType.ll_cas.ll_setDoubleValue(addr, ((AggregateConfidence_Type) jcasType).casFeatCode_spatialRelationshipConf, v);
 	}
 	
 	/**

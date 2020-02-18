@@ -10,18 +10,17 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
-public class Feedback_Type extends Annotation_Type {
+public class ConfidenceFeedback_Type extends Annotation_Type {
     /** @generated */
     @SuppressWarnings("hiding")
-    public final static int typeIndexID = Feedback.typeIndexID;
-    
+    public final static int typeIndexID = ConfidenceFeedback.typeIndexID;
     /**
      * @generated
      * @modifiable
      */
     @SuppressWarnings("hiding")
     public final static boolean featOkTst = JCasRegistry
-            .getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.Feedback");
+            .getFeatOkTst("edu.rosehulman.aixprize.pipeline.types.ConfidenceFeedback");
 
     /** @generated */
     final Feature casFeat_feedbackMsg;
@@ -36,7 +35,7 @@ public class Feedback_Type extends Annotation_Type {
      */
     public double getFeedbackMsg(int addr) {
         if (featOkTst && casFeat_feedbackMsg == null)
-            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.Feedback");
+            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.ConfidenceFeedback");
         return ll_cas.ll_getDoubleValue(addr, casFeatCode_feedbackMsg);
     }
 
@@ -49,7 +48,7 @@ public class Feedback_Type extends Annotation_Type {
      */
     public void setFeedbackMsg(int addr, double v) {
         if (featOkTst && casFeat_feedbackMsg == null)
-            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.Feedback");
+            jcas.throwFeatMissing("feedbackMsg", "edu.rosehulman.aixprize.pipeline.types.ConfidenceFeedback");
         ll_cas.ll_setDoubleValue(addr, casFeatCode_feedbackMsg, v);
     }
 
@@ -62,11 +61,11 @@ public class Feedback_Type extends Annotation_Type {
      * @param casType
      *            Type
      */
-    public Feedback_Type(JCas jcas, Type casType) {
+    public ConfidenceFeedback_Type(JCas jcas, Type casType) {
         super(jcas, casType);
         casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl) this.casType, getFSGenerator());
 
-        casFeat_feedbackMsg = jcas.getRequiredFeatureDE(casType, "feedback", "uima.cas.String", featOkTst);
+        casFeat_feedbackMsg = jcas.getRequiredFeatureDE(casType, "feedbackMsg", "uima.cas.String", featOkTst);
         casFeatCode_feedbackMsg = (null == casFeat_feedbackMsg) ? JCas.INVALID_FEATURE_CODE
                 : ((FeatureImpl) casFeat_feedbackMsg).getCode();
 

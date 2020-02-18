@@ -3,23 +3,17 @@
   <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
   <primitive>false</primitive>  
   <delegateAnalysisEngineSpecifiers>
-    <delegateAnalysisEngine key="SpeechToTextAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpeechToTextAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="SpeechToTextJavaAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpeechToTextJavaAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="BlockDetectionAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/BlockDetectionAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="SpatialRelationshipDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/SpatialRelationshipDescriptor.xml"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="PointingDataAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/PointingDataAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="TextConfidenceAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/TextConfidenceAnnotatorDescriptor.xml"/>
+    <delegateAnalysisEngine key="MetadataAnnotatorDescriptor">
+      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/MetadataAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
     <delegateAnalysisEngine key="AggregateConfidenceAnnotatorDescriptor">
       <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/AggregateConfidenceAnnotatorDescriptor.xml"/>
-    </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="OutputAnnotatorDescriptor">
-      <import location="/Users/bathtj/Desktop/Senior Project/Repository/rhit-xprize-pipeline/desc/OutputAnnotatorDescriptor.xml"/>
     </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
@@ -31,12 +25,10 @@
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
-        <node>SpeechToTextAnnotatorDescriptor</node>
-        <node>BlockDetectionAnnotatorDescriptor</node>
-        <node>PointingDataAnnotatorDescriptor</node>
-        <node>TextConfidenceAnnotatorDescriptor</node>
+        <node>SpatialRelationshipDescriptor</node>
+        <node>SpeechToTextJavaAnnotatorDescriptor</node>
+        <node>MetadataAnnotatorDescriptor</node>
         <node>AggregateConfidenceAnnotatorDescriptor</node>
-        <node>OutputAnnotatorDescriptor</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
